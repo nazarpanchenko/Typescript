@@ -2,13 +2,13 @@
 
 let message = 'Just learn it!';
 
-export function sendMessage (name) {
+function sendMessage (name) {
     const sender = 'Gromcode';
 
     console.log(`${name}, ${message}. You ${sender}`);
 }
 
-function setMessage(text) {
+export function setMessage(text) {
     message = text;
 }
 
