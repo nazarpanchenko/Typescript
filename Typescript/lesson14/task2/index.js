@@ -26,5 +26,5 @@ const messenger1 = createMessenger(),
 
 messenger1.setSender('Gromcode');
 messenger1.sendMessage('Bob');
-messenger2.setMessage('Bob');
 messenger2.setMessage('Good job!');
+messenger2.sendMessage('Bob');
