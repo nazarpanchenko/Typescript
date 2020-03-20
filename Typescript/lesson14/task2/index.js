@@ -27,3 +27,5 @@ messenger.setSender('Gromcode');
 messenger.sendMessage('Bob');
 messenger.setMessage('Good job!');
 messenger.sendMessage('Bob');
+
+export default createMessenger;
