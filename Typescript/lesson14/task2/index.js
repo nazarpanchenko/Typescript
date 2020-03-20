@@ -1,4 +1,4 @@
-export default createMessenger = () => {
+const createMessenger = () => {
     let message = 'Just learn it!',
         sender = 'Gromcode';
 
@@ -21,8 +21,10 @@ export default createMessenger = () => {
     };
 };
 
-const messenger = createMessenger();
+const messenger1 = createMessenger(),
+    messenger2 = createMessenger();
 
-messenger.sendMessage('Bob');
-messenger.setMessage('Good job!');
-messenger.setSender('Gromcode');
+messenger1.setSender('Gromcode');
+messenger1.sendMessage('Bob');
+messenger2.setMessage('Bob');
+messenger2.setMessage('Good job!');
