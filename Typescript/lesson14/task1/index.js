@@ -10,4 +10,6 @@ export function sendMessage (name) {
     console.log(`${name}, ${message} Your ${sender}`);
 
     setMessage('Good job!');
+
+    console.log(`${name}, ${message} Your ${sender}`);
 }
