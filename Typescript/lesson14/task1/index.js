@@ -10,11 +10,8 @@ export function setMessage(text) {
     message = text;
 }
 
-sendMessage('Ann');
+// sendMessage('Ann');
 
-setMessage('Good job!');
-
-sendMessage('Ann');
 setMessage('Good job!');
 
 sendMessage('Ann');
