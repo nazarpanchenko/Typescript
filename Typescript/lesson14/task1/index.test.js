@@ -7,3 +7,7 @@ it ('should check if message is correct', () => {
 it ('should check if new message is set correctly', () => {
     setMessage('Good job!');
 });
+
+it ('should check if new message is displayed correctly', () => {
+    sendMessage('Ann');
+});
