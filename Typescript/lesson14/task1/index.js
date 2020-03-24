@@ -7,7 +7,7 @@ export function setMessage(text) {
 export function sendMessage (name) {
     const sender = 'Gromcode';
 
-    setMessage('Good job!');
-
     console.log(`${name}, ${message} Your ${sender}`);
+
+    setMessage('Good job!');
 }
