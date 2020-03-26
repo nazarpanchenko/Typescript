@@ -2,15 +2,17 @@ export const createCalculator = () => {
     let memory = 0;
     
     const add = (value) => {
+        let memory = 0;
         memory += value;
     };
 
     const decrease = (value) => {
+        let memory = 0;
         memory -= value;
     };
 
     const reset = () => {
-        memory = 0;
+        let memory = 0;
     };
 
     const getMemo = () => {
