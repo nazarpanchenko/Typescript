@@ -1,6 +1,6 @@
-let memory = 0;
-
 export const createCalculator = () => {
+    let memory = 0;
+
     function add(value) {
         memory += value;
     }
