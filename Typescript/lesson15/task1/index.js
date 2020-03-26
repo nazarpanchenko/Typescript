@@ -3,14 +3,10 @@ export const createCalculator = () => {
     
     const add = (value) => {
         memory += value;
-
-        return memory;
     };
 
     const decrease = (value) => {
         memory -= value;
-
-        return memory;
     };
 
     const reset = () => {
