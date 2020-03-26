@@ -2,14 +2,12 @@ export const createCalculator = () => {
     let memory = 0;
     
     const add = (value) => {
-        let memory = 0;
         memory += value;
 
         return memory;
     };
 
     const decrease = (value) => {
-        let memory = 0;
         memory -= value;
 
         return memory;
@@ -22,6 +20,9 @@ export const createCalculator = () => {
     const getMemo = () => {
         return memory;
     }
+
+    const calculator1 = createCalculator().add(8);
+    const calculator2 = createCalculator().decrease(3);
 
     return {
         add : add,
