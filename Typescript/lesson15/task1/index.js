@@ -16,8 +16,6 @@ export const createCalculator = () => {
     };
 
     const reset = () => {
-        let memory = 0;
-
         return memory;
     };
 
