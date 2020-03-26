@@ -1,19 +1,19 @@
 export const createCalculator = () => {
     let memory = 0;
     
-    function add(value) {
+    const add = (value) => {
         memory += value;
-    }
+    };
 
-    function decrease(value) {
+    const decrease = (value) => {
         memory -= value;
-    }
+    };
 
-    function reset() {
+    const reset = () => {
         memory = 0;
-    }
+    };
 
-    function getMemo() {
+    const getMemo = () => {
         return memory;
     }
 
