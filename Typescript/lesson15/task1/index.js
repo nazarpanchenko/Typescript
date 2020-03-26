@@ -2,11 +2,11 @@ export const createCalculator = () => {
     let memory = 0;
     
     function add (value) {
-        let calculator = memory + value;
+        memory += value;
     };
 
     function decrease(value) {
-        let calculator = memory - value;
+        memory -= value;
     };
 
     function reset() {
@@ -17,9 +17,12 @@ export const createCalculator = () => {
         return memory;
     }
 
+    const addCounter = add();
+    const decreaseCounter = decrease();
+
     return {
-        addMemory : add,
-        decreaseMemory : decrease,
+        addMemory : addCounter,
+        decreaseMemory : decreaseCounter,
         resetMemory : reset,
         getMemory : getMemo
     }
