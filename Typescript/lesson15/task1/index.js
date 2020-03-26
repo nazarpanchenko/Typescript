@@ -1,28 +1,29 @@
 export const createCalculator = () => {
     let memory = 0;
     
-    function add (value) {
+    const add = (value) => {
         memory += value;
+
+        return memory;
     };
 
-    function decrease(value) {
+    const decrease = (value) => {
         memory -= value;
+
+        return memory;
     };
 
-    function reset() {
+    const reset = () => {
         memory = 0;
     };
 
-    function getMemo() {
+    const getMemo = () => {
         return memory;
     }
 
-    const addCounter = add();
-    const decreaseCounter = decrease();
-
     return {
-        addMemory : addCounter,
-        decreaseMemory : decreaseCounter,
+        addMemory : add,
+        decreaseMemory : decrease,
         resetMemory : reset,
         getMemory : getMemo
     }
