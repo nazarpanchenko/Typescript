@@ -21,12 +21,12 @@ export const createCalculator = () => {
         return memory;
     }
 
-    const calculator1 = createCalculator().add(8);
-    const calculator2 = createCalculator().decrease(3);
+    const addCounter = add(8);
+    const decreaseCounter = decrease(3);
 
     return {
-        add : add,
-        decrease : decrease,
+        add : addCounter,
+        decrease : decreaseCounter,
         reset : reset,
         get : getMemo
     }
