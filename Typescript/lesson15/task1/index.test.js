@@ -1,9 +1,13 @@
 import { createCalculator } from './index';
 
-it('should check memory value', () => {
-    const calculator1 = createCalculator().addMemory(8);
-    const calculator2 = createCalculator().decreaseMemory(3);
-    const result = createCalculator().getMemory();
+it('should check the value of the first counter', () => {
+    const calculator = createCalculator().addMemory(8);
 
-    expect(result).toEqual(0);
+    expect(calculator).toEqual(8);
+});
+
+it('should check the value of the second counter', () => {
+    const calculator = createCalculator().decreaseMemory(3);
+
+    expect(calculator).toEqual(-3);
 });
