@@ -22,9 +22,9 @@ export const createCalculator = () => {
     }
 
     return {
-        addMemory : add,
-        decreaseMemory : decrease,
-        resetMemory : reset,
-        getMemory : getMemo
+        add : add,
+        decrease : decrease,
+        reset : reset,
+        get : getMemo
     }
 };
