@@ -1,7 +1,7 @@
 export const createLogger = () => {
     let data = {
         message : '',
-        dateTime : new Date(),
+        dateTime : null,
         type : ''
     };
     let logs = [];
@@ -32,6 +32,10 @@ export const createLogger = () => {
 
         return logs;
     };
+
+    const counter1 = warn('You got a warning message!');
+    const counter2 = error('You got an error!');
+    const counter3 = warn('New log');
 
     const getRecords = (logType) => {
         if (!logType) return logs.sort((a, b) => a.dateTime > b.dateTime ? 1 : -1);
