@@ -6,4 +6,5 @@ it('should check if counters are independent', () => {
 
     expect(calculator1).toEqual(8);
     expect(calculator2).toEqual(-3);
+    expect(calculator1).toEqual(8);
 });

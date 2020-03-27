@@ -25,6 +25,6 @@ export const createCalculator = () => {
         add : add,
         decrease : decrease,
         reset : reset,
-        get : getMemo
+        getMemo : getMemo
     }
 };
