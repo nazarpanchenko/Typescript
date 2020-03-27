@@ -8,7 +8,7 @@ export const createLogger = () => {
 
     const warn = (warnMessage) => {
         data.message = warnMessage;
-        data.dateTime = new Date();
+        data.dateTime = +new Date();
         data.type = 'warn';
         logs.push(data);
 
@@ -17,7 +17,7 @@ export const createLogger = () => {
 
     const error = (errMessage) => {
         data.message = errMessage;
-        data.dateTime = new Date();
+        data.dateTime = +new Date();
         data.type = 'error';
         logs.push(data);
 
@@ -26,7 +26,7 @@ export const createLogger = () => {
 
     const log = (logMessage) => {
         data.message = logMessage;
-        data.dateTime = new Date();
+        data.dateTime = +new Date();
         data.type = 'log';
         logs.push(data);
 
