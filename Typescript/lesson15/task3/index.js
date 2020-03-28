@@ -38,7 +38,7 @@ export const createLogger = () => {
 
         logs = logs.filter(data => data.type === logType);
 
-        return logs.sort((a, b) => a.dateTime > b.dateTime ? 1 : -1);;
+        return logs.sort((a, b) => a.dateTime > b.dateTime ? 1 : -1);
     };
 
     return {
