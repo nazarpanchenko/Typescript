@@ -38,7 +38,10 @@ export const createLogger = () => {
 
         if (logType !== 'warn' && logType !== 'err' && logType !== 'log') return [];
 
-        return logs.sort((a, b) => a.dateTime > b.dateTime ? 1 : -1);
+        logs = logs.sort((a, b) => a.dateTime > b.dateTime ? 1 : -1);
+        logs = logs.sort((a, b) => a.logType > b.logType ? 1 : -1);
+
+        return logs;
     };
 
     return {
