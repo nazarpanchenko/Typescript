@@ -40,10 +40,6 @@ export const createLogger = () => {
 
         logs = logs.filter(data => data.type === logType).sort((a, b) => a.dateTime > b.dateTime ? -1 : 1);
 
-        for (let i = 0; i < logs.length; i++) {
-            result.push(logs[i].message);
-        }
-
         return result;
     };
 
