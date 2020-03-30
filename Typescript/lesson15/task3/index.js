@@ -36,7 +36,15 @@ export const createLogger = () => {
     const getRecords = (logType) => {
         if (!logType) return logs.sort((a, b) => a.dateTime > b.dateTime ? -1 : 1);
 
-        return logs.filter(data => data.type === logType).sort((a, b) => a.dateTime > b.dateTime ? -1 : 1);
+        let result = [];
+
+        logs = logs.filter(data => data.type === logType).sort((a, b) => a.dateTime > b.dateTime ? -1 : 1);
+
+        for (let i = 0; i < logs.length; i++) {
+            result.push(logs[i].message);
+        }
+
+        return result;
     };
 
     return {
