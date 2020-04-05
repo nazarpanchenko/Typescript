@@ -11,6 +11,8 @@ export const createLogger = () => {
         logs.dateTime = new Date();
         logs.type = 'warn';
         records.push(logs);
+
+        return records;
     };
 
     const error = (errMessage) => {
@@ -18,6 +20,8 @@ export const createLogger = () => {
         logs.dateTime = new Date();
         logs.type = 'error';
         records.push(logs);
+
+        return records;
     };
 
     const log = (logMessage) => {
@@ -25,6 +29,8 @@ export const createLogger = () => {
         logs.dateTime = new Date();
         logs.type = 'log';
         records.push(logs);
+
+        return records;
     };
 
     const getRecords = (logType) => {
