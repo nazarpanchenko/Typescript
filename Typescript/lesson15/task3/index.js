@@ -11,31 +11,34 @@ export const createLogger = () => {
         logs.dateTime = new Date();
         logs.type = 'warn';
         records.push(logs);
+
+        return records;
     };
 
     const error = (errMessage) => {
-        logs.message.push(errMessage);
-        logs.dateTime.push(new Date());
-        logs.type.push('error');
+        logs.message = errMessage;
+        logs.dateTime = new Date();
+        logs.type = 'error';
+        records.push(logs);
+
+        return records;
     };
 
     const log = (logMessage) => {
-        logs.message.push(logMessage);
-        logs.dateTime.push(new Date());
-        logs.type.push('log');
+        logs.message = logMessage;
+        logs.dateTime = new Date();
+        logs.type = 'log';
+        records.push(logs);
+
+        return records;
     };
 
     const getRecords = (logType) => {
-        if (!logType) {
-            logs.dateTime = logs.dateTime.sort((a, b) => b > a ? -1 : 1);
+        if (!logType) return records.sort((log_A, log_B) => log_B.dateTime > log_A.dateTime ? -1 : 1);
 
-            return logs.message;
-        }
+        records = records.filter(log => log.type === logType);
 
-        logs.type = logs.type.filter(log => log === logType);
-        logs.dateTime = logs.dateTime.sort((a, b) => b > a ? -1 : 1);
-
-        return logs.message;
+        return records.sort((log_A, log_B) => log_B.dateTime > log_A.dateTime ? -1 : 1);;
     };
 
     return {
