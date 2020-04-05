@@ -34,11 +34,26 @@ export const createLogger = () => {
     };
 
     const getRecords = (logType) => {
-        if (!logType) return records.sort((log_A, log_B) => log_B.dateTime > log_A.dateTime ? -1 : 1);
+        let result = [];
+        
+        if (!logType) {
+            records = records.sort((log_A, log_B) => log_B.dateTime > log_A.dateTime ? -1 : 1);
+
+            for (let i = 0; i < records.length; i++) {
+                result.push(records[i].message);
+            }    
+
+            return result;
+        }
 
         records = records.filter(log => log.type === logType);
+        records = records.sort((log_A, log_B) => log_B.dateTime > log_A.dateTime ? -1 : 1);
 
-        return records.sort((log_A, log_B) => log_B.dateTime > log_A.dateTime ? -1 : 1);;
+        for (let i = 0; i < records.length; i++) {
+            result.push(records[i].message);
+        }
+
+        return result;
     };
 
     return {
