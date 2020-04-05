@@ -21,7 +21,7 @@ export const createLogger = () => {
     };
 
     const log = (logMessage) => {
-        logs.message = warnMessage;
+        logs.message = logMessage;
         logs.dateTime = new Date();
         logs.type = 'log';
         records.push(logs);
