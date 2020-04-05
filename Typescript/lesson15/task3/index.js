@@ -18,7 +18,7 @@ export const createLogger = () => {
     const error = (errMessage) => {
         messages.message = errMessage;
         messages.dateTime = new Date();
-        messages.type = 'err';
+        messages.type = 'error';
         logs.records.push(messages);
     };
 
