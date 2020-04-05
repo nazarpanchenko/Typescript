@@ -1,13 +1,13 @@
 import { createLogger } from './index';
 
 it('should check if all loggers has their own variable scope', () => {
-    let logger = createLogger().warn('You got a warning message!');
-    logger = createLogger().error('You got an error message!');
-    logger = createLogger().warn('New warning');
-    logger = createLogger().warn('Another warning');
+    let logger = createLogger().warn('Warning');
+    logger = createLogger().error('Error! ');
+    logger = createLogger().warn('Warning 2');
+    logger = createLogger().warn('Warning 3');
 
     let getRecords = createLogger().getRecords('warn');
 
-    expect(logger).toEqual([{ message : 'You got a warning message!', dateTime : new Date(), type : 'warn' }]);
-    expect(getRecords).toEqual([{ message : 'You got a warning message!', dateTime : new Date(), type : 'warn' }]);
+    expect(logger).toEqual([{ message : 'Warning', dateTime : new Date(), type : 'warn' }]);
+    expect(getRecords).toEqual([{ message : 'Warning', dateTime : new Date(), type : 'warn' }]);
 });
