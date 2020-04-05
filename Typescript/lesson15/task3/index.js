@@ -1,7 +1,5 @@
 export const createLogger = () => {
-    let logs = {
-        records : []
-    };
+    let records = [];
     let messages = {
         message : '',
         dateTime : new Date(),
@@ -12,30 +10,27 @@ export const createLogger = () => {
         messages.message = warnMessage;
         messages.dateTime = new Date();
         messages.type = 'warn';
-        logs.records.push(messages);
+        records.push(messages);
     };
 
     const error = (errMessage) => {
         messages.message = errMessage;
         messages.dateTime = new Date();
         messages.type = 'error';
-        logs.records.push(messages);
+        records.push(messages);
     };
 
     const log = (logMessage) => {
         messages.message = logMessage;
         messages.dateTime = new Date();
         messages.type = 'log';
-        logs.records.push(messages);
+        records.push(messages);
     };
 
     const getRecords = (logType) => {
-        if (!logType) return logs.records.sort((a, b) => b.dateTime > a.dateTime ? -1 : 1);
+        if (!logType) return records.sort((a, b) => b.dateTime > a.dateTime ? -1 : 1);
 
-        logs.records = logs.records.filter(log => log.type === logType);
-        logs.records = logs.records.sort((a, b) => b.dateTime > a.dateTime ? -1 : 1);
-
-        return logs.records;
+        return records.filter(log => log.type === logType).sort((a, b) => b.dateTime > a.dateTime ? -1 : 1);
     };
 
     return {
