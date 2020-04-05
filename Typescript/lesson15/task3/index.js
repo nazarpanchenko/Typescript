@@ -1,14 +1,16 @@
 export const createLogger = () => {
     let logs = {
-        message: [],
-        dateTime: [],
-        type: []
+        message: '',
+        dateTime: null,
+        type: ''
     };
+    let records = [];
 
     const warn = (warnMessage) => {
-        logs.message.push(warnMessage);
-        logs.dateTime.push(new Date());
-        logs.type.push('warn');
+        logs.message = warnMessage;
+        logs.dateTime = new Date();
+        logs.type = 'warn';
+        records.push(logs);
     };
 
     const error = (errMessage) => {
