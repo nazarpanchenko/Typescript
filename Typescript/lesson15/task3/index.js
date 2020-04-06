@@ -1,26 +1,26 @@
 export const createLogger = () => {
     let records = {
-        message : '',
-        dateTime : null,
-        type : ''
+        message : [],
+        dateTime : [],
+        type : []
     };
 
     const warn = (warnMessage) => {
-        records.message = warnMessage;
-        records.dateTime = new Date();
-        records.type = 'warn';
+        records.message.push(warnMessage);
+        records.dateTime.push(new Date());
+        records.type.push('warn');
     };
 
     const error = (errMessage) => {
-        records.message = errMessage;
-        records.dateTime = new Date();
-        records.type = 'error';
+        records.message.push(errMessage);
+        records.dateTime.push(new Date());
+        records.type.push('error');
     };
 
     const log = (logMessage) => {
-        records.message = logMessage;
-        records.dateTime = new Date();
-        records.type = 'log';
+        records.message.push(logMessage);
+        records.dateTime.push(new Date());
+        records.type.push('log');
     };
 
     const getRecords = (type) => {
