@@ -1,42 +1,33 @@
 export const createLogger = () => {
-    let logs = {
+    let records = {
         message : '',
         dateTime : null,
         type : ''
     };
-    let records = [];
 
     const warn = (warnMessage) => {
-        logs.message = warnMessage;
-        logs.dateTime = new Date();
-        logs.type = 'warn';
-        records.push(logs);
-
-        return records;
+        records.message = warnMessage;
+        records.dateTime = new Date();
+        records.type = 'warn';
     };
 
     const error = (errMessage) => {
-        logs.message = errMessage;
-        logs.dateTime = new Date();
-        logs.type = 'error';
-        records.push(logs);
-
-        return records;
+        records.message = errMessage;
+        records.dateTime = new Date();
+        records.type = 'error';
     };
 
     const log = (logMessage) => {
-        logs.message = logMessage;
-        logs.dateTime = new Date();
-        logs.type = 'log';
-        records.push(logs);
-
-        return records;
+        records.message = logMessage;
+        records.dateTime = new Date();
+        records.type = 'log';
     };
 
-    const getRecords = (logType) => {
-        if (!logType) return records.sort((a, b) => b.dateTime > a.dateTime ? -1 : 1);
-
-        return records.filter(log => log.type === logType).sort((a, b) => b.dateTime > a.dateTime ? -1 : 1);
+    const getRecords = (type) => {
+        return type ? records[type].reverse()
+            : Object.values(records)
+                .reduce((acc, rec) => acc.concat(rec), [])
+                .sort((a, b) => (b.dateTime < a.dateTime ? -1 : 1));
     };
 
     return {
