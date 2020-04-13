@@ -1,5 +1,5 @@
 export const createArrayOfFunctions = (arrLength) => {
-    if (isNaN(arrLength)) return null;
+    if (isNaN(arrLength) || !arrLength) return null;
 
     let arr = [];
 
