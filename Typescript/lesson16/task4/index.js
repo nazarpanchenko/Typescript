@@ -8,6 +8,6 @@ function bar() {
     return foo;
 }
 
-let foo = bar();
+foo = bar();
 
 export { foo };
