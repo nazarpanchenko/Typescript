@@ -4,8 +4,8 @@ export const createArrayOfFunctions = (arrLength) => {
     let arr = [];
 
     for (let i = 0; i < arrLength; i++) {
-        if (!arrLength) return null;
-        
+        if (!arrLength) return [];
+
         arr[i] = function() {
             return i;
         }
