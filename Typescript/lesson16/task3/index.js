@@ -1,11 +1,8 @@
 export const createArrayOfFunctions = (arrLength) => {
-    if (isNaN(arrLength)) {
-      return null;  
-    } 
-    else if (!arrLength) {
-        return [];
-    }
+    if (isNaN(arrLength)) return null;  
 
+    if (!arrLength) return undefined;
+    
     let arr = [];
 
     for (let i = 0; i < arrLength; i++) {
