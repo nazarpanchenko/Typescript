@@ -10,4 +10,4 @@ function bar() {
 
 foo = bar();
 
-export { foo };
+export default foo;
