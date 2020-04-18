@@ -10,4 +10,4 @@ function bar() {
 
 let foo = bar();
 
-export { let };
+export { foo };
