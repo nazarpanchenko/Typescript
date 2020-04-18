@@ -8,6 +8,6 @@ function bar() {
     return foo;
 }
 
-foo = bar();
+var foo = bar();
 
 export { foo };
