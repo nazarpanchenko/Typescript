@@ -8,6 +8,4 @@ const sayHi = () => {
     console.log('Hi');
 };
 
-const deferredSayHi = defer(sayHi, 1000);
-
-deferredSayHi();
+sayHi();
