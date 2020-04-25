@@ -16,7 +16,7 @@ sayName.apply(student, [name]);
 anotherName = {
     name : 'Bruce'
 };
-sayName.apply(student, [name]);
+sayName.apply(anotherName, [name]);
 
 
 /* ===> 2 <=== */
@@ -49,7 +49,7 @@ function getPopulation(population) {
 // 43000 передавайте в виде числа
 // используйте объект country
 // ... your code here
-getPopulation.apply(country, [43000, countryName]);
+getPopulation.apply(country, [countryName, 43000]);
 
 
 /* ===> 4 <=== */
