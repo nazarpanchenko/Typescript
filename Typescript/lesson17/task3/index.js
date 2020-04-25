@@ -1,4 +1,4 @@
-export const defer = () => {
+export const defer = (func, ms) => {
     return function() {
         setTimeout(func, ms);
     }
