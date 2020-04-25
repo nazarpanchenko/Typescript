@@ -22,8 +22,6 @@ sayName.call(anotherName, name);
 
 /* ===> 2 <=== */
 const company = {
-    firstName : 'Bob',
-    lastName : 'Marley',
     companyName: 'Microsoft'
 };
 
@@ -35,7 +33,7 @@ function greeting(firstName, lastName) {
 // 'Hello, Bob Marley. Welcome to the Microsoft'
 // используйте объект company
 // ... your code here
-greeting.call(company, firstName, lastName, companyName);
+greeting.call(company, 'Bob', 'Marley', companyName);
 
 /* ===> 3 <=== */
 const country = {
