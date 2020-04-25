@@ -1,8 +1,8 @@
-export const defer = (func, ms) => {
+function defer(func, ms) {
     return function() {
         setTimeout(func, ms);
     }
-};
+}
 
 const sayHi = () => {
     console.log('Hi');
@@ -11,3 +11,5 @@ const sayHi = () => {
 const deferredSayHi = defer(sayHi, 1000);
 
 deferredSayHi();
+
+export default defer;
