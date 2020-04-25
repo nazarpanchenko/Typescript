@@ -8,6 +8,6 @@ const sum = (a, b) => {
     console.log(a + b);
 };
 
-const deferredSum = defer(sayHi, 1000);
+const deferredSum = defer(sum, 1000);
 
 deferredSum(1, 4);
