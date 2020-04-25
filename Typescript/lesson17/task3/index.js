@@ -1,15 +1,13 @@
-function defer(func, ms) {
+export const defer = (func, ms) => {
     return function() {
-        setTimeout(func, ms);
+        setTimeout(() => func(...arguments), ms);
     }
-}
-
-const sayHi = () => {
-    console.log('Hi');
 };
 
-const deferredSayHi = defer(sayHi, 1000);
+const sum = (a, b) => {
+    console.log(a + b);
+};
 
-deferredSayHi();
+const deferredSum = defer(sayHi, 1000);
 
-export default defer;
+deferredSum(1, 4);
