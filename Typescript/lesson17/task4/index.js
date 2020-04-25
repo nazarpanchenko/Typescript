@@ -1,4 +1,4 @@
-/* ===> 1 <=== */
+
 const student = {
     name: 'Tom',
 };
@@ -7,20 +7,17 @@ export function sayName() {
     console.log(this.name);
 }
 
-// вызовите ф-цию sayName так, чтобы в консоль вывелось имя студента 
-// ... your code here
+
 sayName.call(student, 'Tom');
 
 
-// вызовите ф-цию sayName так, чтобы в консоль вывелось имя 'Bruce' (используйте другой объект)
-// ... your code here
 const anotherName = {
     name : 'Bruce'
 };
 sayName.call(anotherName, 'Bruce');
 
 
-/* ===> 2 <=== */
+
 const company = {
     companyName: 'Microsoft'
 };
@@ -29,13 +26,10 @@ function greeting(firstName, lastName) {
     console.log(`Hello, ${firstName} ${lastName}. Welcome to the ${this.companyName}`);
 }
 
-// вызовите ф-цию greeting так, чтобы в консоль вывелось 
-// 'Hello, Bob Marley. Welcome to the Microsoft'
-// используйте объект company
-// ... your code here
+
 greeting.call(company, 'Bob', 'Marley', 'Microsoft');
 
-/* ===> 3 <=== */
+
 const country = {
     countryName: 'Ukraine',
     capital: 'Kyiv'
@@ -45,11 +39,7 @@ function getPopulation(population) {
     return `Population in ${this.countryName} is ${population}`;
 }
 
-// вызовите ф-цию getPopulation так, чтобы она вернула 
-// 'Population in Ukraine is 43000'
-// 43000 передавайте в виде числа
-// используйте объект country
-// ... your code here
+
 getPopulation.call(country, 43000, 'Ukraine');
 
 
@@ -71,8 +61,5 @@ const anotherTransaction = {
     exchange: 'NASDAQ',
 };
 
-// вызовите метод transaction.printTransaction так, чтобы в консоль вывелось
-// '400 USD - buy on NASDAQ'
-// используйте объект anotherTransaction как контекст
-// ... your code here
+
 transaction.printTransaction.call(anotherTransaction, 400, 'USD', 'buy', 'NASDAQ');
