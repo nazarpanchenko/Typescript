@@ -33,7 +33,7 @@ function greeting(firstName, lastName) {
 // 'Hello, Bob Marley. Welcome to the Microsoft'
 // используйте объект company
 // ... your code here
-greeting.call(company, ['Bob', 'Marley', 'Microsoft']);
+greeting.call(company, ['Bob', 'Marley', companyName]);
 
 /* ===> 3 <=== */
 const country = {
@@ -50,7 +50,7 @@ function getPopulation(population) {
 // 43000 передавайте в виде числа
 // используйте объект country
 // ... your code here
-getPopulation.call(country, [43000, 'Ukraine']);
+getPopulation.call(country, [43000, countryName]);
 
 
 /* ===> 4 <=== */
@@ -75,4 +75,4 @@ const anotherTransaction = {
 // '400 USD - buy on NASDAQ'
 // используйте объект anotherTransaction как контекст
 // ... your code here
-transaction.printTransaction.call(anotherTransaction, [400, amount, operation, exchange]);
+transaction.printTransaction.call(anotherTransaction, [amount, currency, operation, exchange]);
