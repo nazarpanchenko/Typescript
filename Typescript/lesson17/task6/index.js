@@ -12,7 +12,7 @@ function sayName() {
  * используйте .bind и ф-цию sayName
  */
 export const sayStudentName = () => {
-    sayName.bind(student.name);
+    sayName.bind(student);
 };
 
 /*
@@ -43,7 +43,7 @@ function greeting(firstName, lastName) {
  * specialGreeting не должна принимать ни одного аргумента
  */
 export const specialGreeting = () => {
-    greeting.apply(company, ['Bob', 'Marley', companyName]).bind(company);
+    greeting.bind(company, 'Bob', 'Marley', companyName);
 };
 
 /* ===> 3 <=== */
@@ -64,7 +64,7 @@ function getPopulation(population) {
  * getUkrainePopulation не должна принимать ни одного аргумента
  */
 export const getUkrainePopulation = () => {
-    getPopulation.apply(country, [countryName, 43000]).bind(country);
+    getPopulation.bind(country, 43000, countryName);
 };
 
 
@@ -93,5 +93,5 @@ const anotherTransaction = {
  * printSpecialTransaction не должна принимать ни одного аргумента
  */
 export const printSpecialTransaction = () => {
-    transaction.printTransaction().apply(anotherTransaction, [amount, currency, operation, exchange]).bind(anotherTransaction);
+    transaction.printTransaction().bind(anotherTransaction, amount, currency, operation, exchange);
 };
