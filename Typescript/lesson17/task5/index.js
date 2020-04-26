@@ -9,7 +9,7 @@ function sayName() {
 
 // вызовите ф-цию sayName так, чтобы в консоль вывелось имя студента 
 // ... your code here
-sayName.apply(student, [student.name]);
+sayName.apply(student, ['Tom']);
 
 // вызовите ф-цию sayName так, чтобы в консоль вывелось имя 'Bruce' (используйте другой объект)
 // ... your code here
