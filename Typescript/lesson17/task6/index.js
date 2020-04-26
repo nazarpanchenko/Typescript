@@ -12,9 +12,8 @@ function sayName() {
  * используйте .bind и ф-цию sayName
  */
 export const sayStudentName = () => {
-    return sayName.bind(student);
+    sayName.bind(student);
 };
-sayStudentName();
 
 /*
  * создайте ф-цию sayBruceName которая будет выводить в консоль имя 'Bruce'
@@ -25,9 +24,8 @@ const studentBruce = {
 };
 
 export const sayBruceName = () => {
-    return sayName.bind(studentBruce);
+    sayName.bind(studentBruce);
 };
-sayBruceName();
 
 /* ===> 2 <=== */
 const company = {
@@ -45,9 +43,8 @@ function greeting(firstName, lastName) {
  * specialGreeting не должна принимать ни одного аргумента
  */
 export const specialGreeting = () => {
-    return greeting.bind(company);
+    greeting.apply(company, ['Bob', 'Marley', companyName]).bind(company);
 };
-specialGreeting();
 
 /* ===> 3 <=== */
 const country = {
@@ -67,9 +64,8 @@ function getPopulation(population) {
  * getUkrainePopulation не должна принимать ни одного аргумента
  */
 export const getUkrainePopulation = () => {
-    return getPopulation.bind(country);
+    getPopulation.apply(country, [countryName, 43000]).bind(country);
 };
-getUkrainePopulation();
 
 
 /* ===> 4 <=== */
@@ -97,6 +93,5 @@ const anotherTransaction = {
  * printSpecialTransaction не должна принимать ни одного аргумента
  */
 export const printSpecialTransaction = () => {
-    return transaction.printTransaction().bind(anotherTransaction);
+    transaction.printTransaction().apply(anotherTransaction, [amount, currency, operation, exchange]).bind(anotherTransaction);
 };
-printSpecialTransaction();
