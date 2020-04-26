@@ -45,7 +45,7 @@ function greeting(firstName, lastName) {
  * specialGreeting не должна принимать ни одного аргумента
  */
 export const specialGreeting = () => {
-    return greeting.apply(company, ['Bob', 'Marley', companyName]).bind(company);
+    return greeting.bind(company).apply(company, ['Bob', 'Marley', companyName]);
 };
 specialGreeting();
 
@@ -67,7 +67,7 @@ function getPopulation(population) {
  * getUkrainePopulation не должна принимать ни одного аргумента
  */
 export const getUkrainePopulation = () => {
-    return getPopulation.apply(country, [countryName, 43000]).bind(country);
+    return getPopulation.bind(country).apply(country, [countryName, 43000]);
 };
 getUkrainePopulation();
 
@@ -97,6 +97,6 @@ const anotherTransaction = {
  * printSpecialTransaction не должна принимать ни одного аргумента
  */
 export const printSpecialTransaction = () => {
-    return transaction.printTransaction().apply(anotherTransaction, [amount, currency, operation, exchange]).bind(anotherTransaction);
+    return transaction.printTransaction().bind(anotherTransaction).apply(anotherTransaction, [amount, currency, operation, exchange]);
 };
 printSpecialTransaction();
