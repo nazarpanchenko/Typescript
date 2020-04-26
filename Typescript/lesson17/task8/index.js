@@ -3,13 +3,16 @@ export const timer = {
     minsPassed : 0,
 
     startTimer : function() {
-        if (this.secondsPassed == 60) {
-            this.secondsPassed = 0;
-            this.minsPassed += 1;
-        }
+        let timerID = setInterval(() => {
+            if (this.secondsPassed == 60) {
+                this.secondsPassed = 0;
+                this.minsPassed += 1;
+            }
+    
+            this.secondsPassed += 5;
+        }, 5000);
 
-        this.minsPassed += 1;
-        this.secondsPassed += 5;
+        return timerID;
     },
     getTime : function() {
         if (this.secondsPassed > 9) {
