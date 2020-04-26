@@ -12,7 +12,7 @@ function sayName() {
  * используйте .bind и ф-цию sayName
  */
 export const sayStudentName = () => {
-    sayName.bind(student);
+    sayName.bind(student.name);
 };
 
 /*
