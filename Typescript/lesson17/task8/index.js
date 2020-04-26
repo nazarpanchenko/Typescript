@@ -4,10 +4,10 @@ export const timer = {
 
     startTimer : function() {
         if (this.secondsPassed == 60) {
-            this.minsPassed += 1;
             this.secondsPassed = 0;
         }
 
+        this.minsPassed += 1;
         this.secondsPassed += 5;
     },
     getTime : function() {
