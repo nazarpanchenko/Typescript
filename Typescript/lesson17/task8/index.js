@@ -15,7 +15,7 @@ export const timer = {
         return timerID;
     },
     getTime : function() {
-        if (this.secondsPassed > 9) {
+        if (this.secondsPassed < 10) {
             return '' + this.minsPassed + ':0' + this.secondsPassed;
         } else {
             return '' + this.minsPassed + ':' + this.secondsPassed;
