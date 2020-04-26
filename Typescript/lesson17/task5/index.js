@@ -9,14 +9,14 @@ function sayName() {
 
 // вызовите ф-цию sayName так, чтобы в консоль вывелось имя студента 
 // ... your code here
-sayName.apply(student, [name]);
+sayName.apply(student, [student.name]);
 
 // вызовите ф-цию sayName так, чтобы в консоль вывелось имя 'Bruce' (используйте другой объект)
 // ... your code here
 anotherName = {
     name : 'Bruce'
 };
-sayName.apply(anotherName, [name]);
+sayName.apply(anotherName, [anotherName.name]);
 
 
 /* ===> 2 <=== */
@@ -32,7 +32,7 @@ function greeting(firstName, lastName) {
 // 'Hello, Bob Marley. Welcome to the Microsoft'
 // используйте объект company
 // ... your code here
-greeting.apply(company, ['Bob', 'Marley', companyName]);
+greeting.apply(company, ['Bob', 'Marley', company.companyName]);
 
 /* ===> 3 <=== */
 const country = {
@@ -49,7 +49,7 @@ function getPopulation(population) {
 // 43000 передавайте в виде числа
 // используйте объект country
 // ... your code here
-getPopulation.apply(country, [countryName, 43000]);
+getPopulation.apply(country, [43000, country.countryName]);
 
 
 /* ===> 4 <=== */
@@ -74,4 +74,4 @@ const anotherTransaction = {
 // '400 USD - buy on NASDAQ'
 // используйте объект anotherTransaction как контекст
 // ... your code here
-transaction.printTransaction.apply(anotherTransaction, [amount, currency, operation, exchange]);
+transaction.printTransaction.apply(anotherTransaction, [anotherTransation.amount, anotherTransation.currency, anotherTransation.operation, anotherTransation.exchange]);

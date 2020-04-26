@@ -22,7 +22,7 @@ export const timer = {
         }
     },
     stopTimer : function() {
-        clearInterval(this.startTimer());
+        clearInterval(this.startTimer);
     },
     resetTimer : function() {
         this.secondsPassed = 0;
