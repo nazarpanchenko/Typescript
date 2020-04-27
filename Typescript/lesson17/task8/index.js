@@ -1,7 +1,7 @@
 export const timer = {
     secondsPassed : 0,
     minsPassed : 0,
-    
+
     timerID : setInterval(() => {
         if (this.secondsPassed == 60) {
             this.secondsPassed = 0;
@@ -11,7 +11,7 @@ export const timer = {
         this.secondsPassed += 5;
     }, 5000),
     startTimer : function() {
-        return this.timerID;
+        return this.timerID();
     },
     getTime : function() {
         if (this.secondsPassed < 10) {
@@ -21,7 +21,7 @@ export const timer = {
         }
     },
     stopTimer : function() {
-        clearInterval(this.startTimer);
+        clearInterval(this.timerID);
     },
     resetTimer : function() {
         this.secondsPassed = 0;
