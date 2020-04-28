@@ -13,15 +13,6 @@ export const timer = {
         }, 5000);
     },
 
-    // timerID : function() {
-    //     if (this.secondsPassed == 60) {
-    //         this.secondsPassed = 0;
-    //         this.minsPassed += 1;
-    //     }
-    
-    //     this.secondsPassed += 5;
-    // },
-
     startTimer : function() {
         setInterval(this._interval, 5000);
     },
@@ -35,7 +26,7 @@ export const timer = {
     },
 
     stopTimer : function() {
-        clearInterval(this.timerID);
+        clearInterval(this._interval);
     },
 
     resetTimer : function() {
