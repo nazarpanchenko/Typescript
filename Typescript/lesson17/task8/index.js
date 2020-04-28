@@ -2,17 +2,28 @@ export const timer = {
     secondsPassed : 0,
     minsPassed : 0,
 
-    timerID : function() {
-        if (this.secondsPassed == 60) {
-            this.secondsPassed = 0;
-            this.minsPassed += 1;
-        }
-    
-        this.secondsPassed += 5;
+    _interval: null,
+    startTimer() {
+        this._interval = setInterval(() => {
+            this.secondsPassed += 5;
+            if (this.secondsPassed === 60) {
+                this.minsPassed += 1;
+                this.secondsPassed = 0;
+            }
+        }, 5000);
     },
 
+    // timerID : function() {
+    //     if (this.secondsPassed == 60) {
+    //         this.secondsPassed = 0;
+    //         this.minsPassed += 1;
+    //     }
+    
+    //     this.secondsPassed += 5;
+    // },
+
     startTimer : function() {
-        setInterval(this.timerID, 5000);
+        setInterval(this._interval, 5000);
     },
 
     getTime : function() {
