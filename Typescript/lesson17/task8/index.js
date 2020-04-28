@@ -13,10 +13,6 @@ export const timer = {
         }, 5000);
     },
 
-    startTimer : function() {
-        setInterval(this._interval, 5000);
-    },
-
     getTime : function() {
         if (this.secondsPassed < 10) {
             return '' + this.minsPassed + ':0' + this.secondsPassed;
