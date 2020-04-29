@@ -13,7 +13,7 @@ sayName.apply(student, [student.name]);
 
 // вызовите ф-цию sayName так, чтобы в консоль вывелось имя 'Bruce' (используйте другой объект)
 // ... your code here
-anotherName = {
+const anotherName = {
     name : 'Bruce'
 };
 sayName.apply(anotherName, [anotherName.name]);
