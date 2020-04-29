@@ -20,8 +20,8 @@ export function calculator(a, b) {
  * и должна принимать 2 числа и возвращать из произведение
  */
 // ...your code here
-const multiplier = () => {
-    calculator.bind(null, '*');
+export const multiplier = () => {
+    calculator.bind(this, '*');
 };
 
 /*
@@ -31,7 +31,7 @@ const multiplier = () => {
  */
 // ...your code here
 export const summator = () => {
-    calculator.bind(null, '+');
+    calculator.bind(this, '+');
 };
 /*
  * Ф-ция twice должна быть создана на основе calculator
@@ -40,5 +40,5 @@ export const summator = () => {
  */
 // ...your code here
 export const twice = () => {
-   calculator.bind(null);
+   calculator.bind(this);
 };
