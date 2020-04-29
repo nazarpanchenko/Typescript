@@ -21,9 +21,9 @@ export function calculator(a, b) {
  */
 // ...your code here
 export const multiplier = () => {
-    let context = calculator.bind(null, '*');
+    let context = calculator.bind(this, '*');
 
-    return context();
+    return context;
 };
 
 /*
@@ -33,9 +33,9 @@ export const multiplier = () => {
  */
 // ...your code here
 export const summator = () => {
-    let context = calculator.bind(null, '+');
+    let context = calculator.bind(this, '+');
 
-    return context();
+    return context;
 };
 /*
  * Ф-ция twice должна быть создана на основе calculator
@@ -44,7 +44,7 @@ export const summator = () => {
  */
 // ...your code here
 export const twice = () => {
-    let context = calculator.bind(null);
+    let context = calculator.bind(this);
     
-    return context();
+    return context;
 };
