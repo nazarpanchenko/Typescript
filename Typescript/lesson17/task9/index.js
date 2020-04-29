@@ -21,7 +21,6 @@ export function calculator(a, b) {
  */
 // ...your code here
 export const multiplier = (a, b) => a * b;
-multiplier.bind(calculator);
 
 /*
  * Ф-ция summator должна быть создана на основе calculator
@@ -30,7 +29,6 @@ multiplier.bind(calculator);
  */
 // ...your code here
 export const summator = (a, b) => a + b;
-summator.bind(calculator);
 
 /*
  * Ф-ция twice должна быть создана на основе calculator
@@ -39,4 +37,3 @@ summator.bind(calculator);
  */
 // ...your code here
 export const twice = (num) => num * 2;
-twice.bind(calculator);
