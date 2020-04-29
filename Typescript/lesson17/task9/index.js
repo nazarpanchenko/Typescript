@@ -20,7 +20,11 @@ export function calculator(a, b) {
  * и должна принимать 2 числа и возвращать из произведение
  */
 // ...your code here
-export const multiplier = () => calculator.bind(null, a, b);
+export const multiplier = () => {
+    let context = calculator.bind(null, '*');
+
+    return context();
+};
 
 /*
  * Ф-ция summator должна быть создана на основе calculator
@@ -28,11 +32,19 @@ export const multiplier = () => calculator.bind(null, a, b);
  * и должна принимать 2 числа и возвращать из сумму
  */
 // ...your code here
-export const summator = () => calculator.bind(null, a, b);
+export const summator = () => {
+    let context = calculator.bind(null, '+');
+
+    return context();
+};
 /*
  * Ф-ция twice должна быть создана на основе calculator
  * с использования .bind
  * и должна принимать 1 число и возвращать это число умноженное на 2
  */
 // ...your code here
-export const twice = () => calculator.bind(null, num);
+export const twice = () => {
+    let context = calculator.bind(null);
+    
+    return context();
+};
