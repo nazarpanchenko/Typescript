@@ -21,7 +21,7 @@ export function calculator(a, b) {
  */
 // ...your code here
 export const multiplier = () => {
-    let context = calculator.bind(this, '*');
+    let context = calculator.bind(null, '*');
 
     return context;
 };
@@ -33,7 +33,7 @@ export const multiplier = () => {
  */
 // ...your code here
 export const summator = () => {
-    let context = calculator.bind(this, '+');
+    let context = calculator.bind(null, '+');
 
     return context;
 };
@@ -44,7 +44,7 @@ export const summator = () => {
  */
 // ...your code here
 export const twice = () => {
-    let context = calculator.bind(this);
+    let context = calculator.bind(null);
     
     return context;
 };
