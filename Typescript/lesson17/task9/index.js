@@ -35,4 +35,4 @@ export const summator = calculator.bind({ operation: '+' });
  * и должна принимать 1 число и возвращать это число умноженное на 2
  */
 // ...your code here
-export const twice = () => calculator.bind({});
+export const twice = (num) => calculator.bind({ operation: num * 2 });
