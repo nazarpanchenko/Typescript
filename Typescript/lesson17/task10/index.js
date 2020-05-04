@@ -1,5 +1,11 @@
 export const bind = (func, context, args) => {
-    let result = func.apply(context, args);
+    let newFunc = func.apply(context, args);
 
-    return result;
+    return newFunc;
 };
+
+const newFunc = () => {
+
+};
+
+bind(newFunc, this, []);
