@@ -4,8 +4,8 @@ export const bind = (func, context, args) => {
     return newFunc;
 };
 
-const newFunc = () => {
+let context = {};
 
-};
+function func() {}
 
-bind(newFunc, this, []);
+let result = bind(func, context, []);
