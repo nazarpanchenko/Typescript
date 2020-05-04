@@ -1,3 +1,5 @@
-export const bind = (func, context) => {
-    func.apply(context, []);
+export const bind = (func, context, args) => {
+    let result = func.apply(context, args);
+
+    return result;
 };
