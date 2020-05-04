@@ -28,7 +28,7 @@ export const multiplier = calculator.bind(this, { operation: '*' });
  * и должна принимать 2 числа и возвращать из сумму
  */
 // ...your code here
-export const summator = calculator.bind(this, { operation: '*' });
+export const summator = calculator.bind(this, { operation: '+' });
 /*
  * Ф-ция twice должна быть создана на основе calculator
  * с использования .bind
