@@ -1,4 +1,5 @@
 /* ===> 1 <=== */
+
 const student = {
     name: 'Tom',
 };
