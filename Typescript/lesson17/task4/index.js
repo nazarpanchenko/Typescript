@@ -41,6 +41,7 @@ const country = {
     capital: 'Kyiv'
 };
 
+
 function getPopulation(population) {
     return `Population in ${this.countryName} is ${population}`;
 }
