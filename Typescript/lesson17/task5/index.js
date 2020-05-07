@@ -75,4 +75,4 @@ const anotherTransaction = {
 // '400 USD - buy on NASDAQ'
 // используйте объект anotherTransaction как контекст
 // ... your code here
-transaction.printTransaction.apply(anotherTransaction, [anotherTransation.amount, anotherTransation.currency, anotherTransation.operation, anotherTransation.exchange]);
+transaction.printTransaction.apply(anotherTransaction, [anotherTransaction.amount, anotherTransaction.currency, anotherTransaction.operation, anotherTransaction.exchange]);
