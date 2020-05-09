@@ -33,7 +33,7 @@ function greeting(firstName, lastName) {
 // 'Hello, Bob Marley. Welcome to the Microsoft'
 // используйте объект company
 // ... your code here
-greeting.apply(company, ['Bob', 'Marley', company.companyName]);
+greeting.apply(company, ['Bob', 'Marley']);
 
 /* ===> 3 <=== */
 const country = {
@@ -50,7 +50,7 @@ function getPopulation(population) {
 // 43000 передавайте в виде числа
 // используйте объект country
 // ... your code here
-getPopulation.apply(country, [43000, country.countryName]);
+getPopulation.apply(country, [43000]);
 
 
 /* ===> 4 <=== */
