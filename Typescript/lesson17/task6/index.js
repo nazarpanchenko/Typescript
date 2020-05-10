@@ -45,7 +45,7 @@ function greeting(firstName, lastName) {
  * specialGreeting не должна принимать ни одного аргумента
  */
 export const specialGreeting = () => {
-    greeting.bind(company, 'Bob', 'Marley', companyName);
+    greeting.bind(company, 'Bob', 'Marley', company.companyName);
 };
 specialGreeting();
 
