@@ -50,7 +50,7 @@ function getPopulation(population) {
 // 43000 передавайте в виде числа
 // используйте объект country
 // ... your code here
-getPopulation.apply(country, [country.countryName, 43000]);
+getPopulation.apply(country, [43000, country.countryName]);
 
 
 /* ===> 4 <=== */
@@ -62,7 +62,7 @@ const transaction = {
     printTransaction() {
         console.log(`${this.amount} ${this.currency} - ${this.operation} on ${this.exchange}`);
     }
-}
+};
 
 const anotherTransaction = {
     amount: 400,
