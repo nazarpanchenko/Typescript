@@ -27,9 +27,9 @@ const studentBruce = {
 };
 
 export const sayBruceName = () => {
-    let boundedFunc = sayName.bind(studentBruce);
+    let boundFunc = sayName.bind(studentBruce);
 
-    return boundedFunc;
+    return boundFunc();
 }
 sayBruceName();
 
@@ -49,9 +49,9 @@ function greeting(firstName, lastName) {
  * specialGreeting не должна принимать ни одного аргумента
  */
 export const specialGreeting = () => {
-    let boundedFunc = greeting.bind(company, 'Bob', 'Marley', company.companyName);
+    let boundFunc = greeting.bind(company, 'Bob', 'Marley', company.companyName);
 
-    return boundedFunc;
+    return boundFunc();
 };
 specialGreeting();
 
@@ -73,9 +73,9 @@ function getPopulation(population) {
  * getUkrainePopulation не должна принимать ни одного аргумента
  */
 export const getUkrainePopulation = () => {
-    let boundedFunc = getPopulation.bind(country, 43000, country.countryName);
+    let boundFunc = getPopulation.bind(country, 43000, country.countryName);
 
-    return boundedFunc;
+    return boundFunc();
 };
 getUkrainePopulation();
 
@@ -105,8 +105,8 @@ const anotherTransaction = {
  * printSpecialTransaction не должна принимать ни одного аргумента
  */
 export const printSpecialTransaction = () => {
-    let boundedFunc = transaction.printTransaction.bind(anotherTransaction, anotherTransaction.amount, anotherTransaction.currency, anotherTransaction.operation, anotherTransaction.exchange);
+    let boundFunc = transaction.printTransaction.bind(anotherTransaction, anotherTransaction.amount, anotherTransaction.currency, anotherTransaction.operation, anotherTransaction.exchange);
 
-    return boundedFunc;
+    return boundFunc();
 };
 printSpecialTransaction();
