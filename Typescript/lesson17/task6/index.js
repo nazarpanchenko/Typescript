@@ -14,7 +14,7 @@ function sayName() {
 export const sayStudentName = () => {
    let boundFunc = sayName.bind(student);
 
-   return boundFunc;
+   return boundFunc();
 };
 sayStudentName();
 
