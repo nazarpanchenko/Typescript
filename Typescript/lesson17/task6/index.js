@@ -67,7 +67,7 @@ function getPopulation(population) {
  * getUkrainePopulation не должна принимать ни одного аргумента
  */
 export const getUkrainePopulation = () => {
-    getPopulation.bind(country, 43000, countryName);
+    getPopulation.bind(country, 43000, country.countryName);
 };
 getUkrainePopulation();
 
@@ -97,6 +97,6 @@ const anotherTransaction = {
  * printSpecialTransaction не должна принимать ни одного аргумента
  */
 export const printSpecialTransaction = () => {
-    transaction.printTransaction().bind(anotherTransaction, amount, currency, operation, exchange);
+    transaction.printTransaction().bind(anotherTransaction, anotherTransaction.amount, anotherTransaction.currency, anotherTransaction.operation, anotherTransaction.exchange);
 };
 printSpecialTransaction();
