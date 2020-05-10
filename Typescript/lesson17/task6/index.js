@@ -12,7 +12,9 @@ function sayName() {
  * используйте .bind и ф-цию sayName
  */
 export const sayStudentName = () => {
-    sayName.bind(student);
+   let boundFunc = sayName.bind(student);
+
+   return boundFunc;
 };
 sayStudentName();
 
@@ -25,7 +27,9 @@ const studentBruce = {
 };
 
 export const sayBruceName = () => {
-    sayName.bind(studentBruce);
+    let boundedFunc = sayName.bind(studentBruce);
+
+    return boundedFunc;
 }
 sayBruceName();
 
@@ -45,7 +49,9 @@ function greeting(firstName, lastName) {
  * specialGreeting не должна принимать ни одного аргумента
  */
 export const specialGreeting = () => {
-    greeting.bind(company, 'Bob', 'Marley', company.companyName);
+    let boundedFunc = greeting.bind(company, 'Bob', 'Marley', company.companyName);
+
+    return boundedFunc;
 };
 specialGreeting();
 
@@ -67,7 +73,9 @@ function getPopulation(population) {
  * getUkrainePopulation не должна принимать ни одного аргумента
  */
 export const getUkrainePopulation = () => {
-    getPopulation.bind(country, 43000, country.countryName);
+    let boundedFunc = getPopulation.bind(country, 43000, country.countryName);
+
+    return boundedFunc;
 };
 getUkrainePopulation();
 
@@ -97,6 +105,8 @@ const anotherTransaction = {
  * printSpecialTransaction не должна принимать ни одного аргумента
  */
 export const printSpecialTransaction = () => {
-    transaction.printTransaction().bind(anotherTransaction, anotherTransaction.amount, anotherTransaction.currency, anotherTransaction.operation, anotherTransaction.exchange);
+    let boundedFunc = transaction.printTransaction.bind(anotherTransaction, anotherTransaction.amount, anotherTransaction.currency, anotherTransaction.operation, anotherTransaction.exchange);
+
+    return boundedFunc;
 };
 printSpecialTransaction();
