@@ -51,7 +51,7 @@ function getPopulation(population) {
 // 43000 передавайте в виде числа
 // используйте объект country
 // ... your code here
-const result = getPopulation.apply(country, [43000]);
+getPopulation.call(country, 43000, country.countryName);
 
 
 /* ===> 4 <=== */
