@@ -9,7 +9,7 @@ export function sayName() {
 
 // вызовите ф-цию sayName так, чтобы в консоль вывелось имя студента 
 // ... your code here
-sayName.call(student, student.name);
+sayName.call(student);
 
 
 // вызовите ф-цию sayName так, чтобы в консоль вывелось имя 'Bruce' (используйте другой объект)
@@ -17,7 +17,7 @@ sayName.call(student, student.name);
 const anotherName = {
     name : 'Bruce'
 };
-sayName.call(anotherName, anotherName.name);
+sayName.call(anotherName);
 
 
 /* ===> 2 <=== */
@@ -33,7 +33,7 @@ function greeting(firstName, lastName) {
 // 'Hello, Bob Marley. Welcome to the Microsoft'
 // используйте объект company
 // ... your code here
-greeting.call(company, 'Bob', 'Marley', company.companyName);
+greeting.call(company, 'Bob', 'Marley');
 
 /* ===> 3 <=== */
 const country = {
@@ -77,4 +77,4 @@ const anotherTransaction = {
 // '400 USD - buy on NASDAQ'
 // используйте объект anotherTransaction как контекст
 // ... your code here
-transaction.printTransaction.call(anotherTransaction, anotherTransaction.amount, anotherTransaction.currency, anotherTransaction.operation, anotherTransaction.exchange);
+transaction.printTransaction.call(anotherTransaction);
