@@ -51,6 +51,7 @@ function getPopulation(population) {
 // используйте объект country
 // ... your code here
 const result = getPopulation.apply(country, [43000]);
+console.log(result);
 
 
 /* ===> 4 <=== */
