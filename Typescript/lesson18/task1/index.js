@@ -1,4 +1,4 @@
-export const events = {
+export const event = {
     guests : [
         { name : 'Tom', email: 't@gmail.com', age : 17 },
         { name : 'Bob', email : 'b@gmail.com', age : 18 }
