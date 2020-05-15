@@ -1,7 +1,6 @@
-export const sumOfSquares = () => {
-    return [...arguments].reduce((acc, elem) => {        
-        return (acc * acc) + ((acc * elem) * 2) + (elem * elem);
-    }, 0);
-};
+function sumOfSquares() {
+    return [].map.call(arguments, num => num * num)
+        .reduce((acc, num) => acc + num, 0 );
+}
 
 sumOfSquares(1, 2, 3, 4);
