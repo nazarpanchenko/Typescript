@@ -1,9 +1,12 @@
-export function saveCalls(func) {
-    function withMemory() {
-        calls : [func.arguments];
-    }
+export function saveCalls(...call) {
+   function WithMemory() {
+        let calls = [];
 
-    return withMemory;
+        calls.push(call);
+        return calls;
+   }
+
+   return WithMemory;
 }
 
 const user = {
@@ -13,6 +16,8 @@ const user = {
     }
 };
 
-const methodWithMemory = saveCalls.apply(user.sayHi);
+const methodWithMemory = saveCalls(user.sayHi);
 
-console.log(methodWithMemory.calls);
+console.log(methodWithMemory.apply({ name : 'Tom' }));
+
+// console.log(methodWithMemory.calls);
