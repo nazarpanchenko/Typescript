@@ -1,4 +1,4 @@
-export function saveCalls(...call) {
+export function saveCalls(call) {
    const WithMemory = () => {
         let calls = [];
 
