@@ -1,21 +1,11 @@
-export function saveCalls(call) {
-   return function WithMemory() {
-       this.calls = [];
-       this.calls.push(...arguments);
+export function saveCalls(func) {
+    const calls = [];
 
-       return this.calls;
-   }
-}
-
-const user = {
-    name : 'John',
-    sayHi() {
-        return this.name;
+    function withMemory(...args) {
+        calls.push(args);
+        return func.apply(this, args);
     }
+    
+    withMemory.calls = calls;
+    return withMemory;
 };
-
-const methodWithMemory = saveCalls(user.sayHi);
-
-console.log(methodWithMemory.apply({ name : 'Tom' }));
-
-console.log(methodWithMemory.calls);
