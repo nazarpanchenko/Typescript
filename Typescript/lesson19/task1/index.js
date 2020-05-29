@@ -1,21 +1,22 @@
 export const vehicle = {
     name : 'Argo',
     move() {
-        console.log(`${vehicle.name} is moving`);
+        console.log(`${this.name} is moving`);
     },
     stop() {
-        console.log(`${vehicle.name} stopped`);
+        console.log(`${this.name} stopped`);
     }
 };
 
 export const ship = {
     name : 'Argo',
-    hasWheels : false,
     startMachine() {
-        console.log(`${ship.name} lifting anchor up`);
+        console.log(`${this.name} lifting anchor up`);
+        ship.move();
     },
     stopMachine() {
-        console.log(`${ship.name} lifting anchor down`);
+        console.log(`${this.name} lifting anchor down`);
+        ship.stop();
     },
     __proto__ : vehicle
 };
