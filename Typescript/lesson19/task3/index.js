@@ -1,14 +1,14 @@
 export const user = {
     firstName : 'John',
     lastName : 'Doe',
-    get fullName() {
+    getFullName() {
         return `${this.firstName} ${this.lastName}`;
     },
-    set fullName(value) {
+    setFullName(value) {
         const [firstName, lastName] = value.split(' ');
         this.firstName = firstName;
         this.lastName = lastName;
     }
 };
 
-user.fullName('Tom');
+user.setfullName('Tom');
