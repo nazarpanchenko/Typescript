@@ -10,4 +10,7 @@ const user = {
     }
 };
 
+user.setFullName('John', 'Doe');
+user.getFullName();
+
 export default user;
