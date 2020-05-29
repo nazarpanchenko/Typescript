@@ -1,10 +1,8 @@
 export const getOwnProps = (obj) => {
     let props = [];
 
-    for (let prop in obj) {
-        if (obj.hasOwnProperty(prop)) {
-            props.push(prop);
-        }    
+    for (let key in obj) {
+        props.push(obj);
     }
 
     return props;
