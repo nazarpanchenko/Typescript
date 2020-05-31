@@ -7,3 +7,14 @@ export const getOwnProps = (obj) => {
 
    return props;
 };
+
+let ship = {
+   hasWheels : false,
+   isMoving : true,
+   liftAnchorUp : function() {
+
+   },
+   liftAnchorDown : function() {
+
+   }
+};
