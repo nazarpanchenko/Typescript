@@ -12,6 +12,8 @@ User.prototype.requestNewPhoto = function() {
 }
 
 User.prototype.setAge = function() {
+   this.age = age;
+
    if (this.age < 0) return false;
 }
 
