@@ -18,3 +18,5 @@ let ship = {
 
    }
 };
+
+getOwnProps(ship);
