@@ -2,7 +2,7 @@ export const getOwnProps = (obj) => {
    let props = [];
 
    for (let prop in obj) {
-      if (obj.hasOwnProperty(prop)) {
+      if (obj.hasOwnProperty(prop) && typeof prop !== 'function') {
          props.push(prop);
       }
    }
