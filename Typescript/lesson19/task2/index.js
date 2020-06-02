@@ -1,4 +1,4 @@
-const getOwnProps = obj => {
+export const getOwnProps = obj => {
    const result = [];
 
    for(let prop in obj) {
@@ -6,9 +6,7 @@ const getOwnProps = obj => {
            result.push(prop);
        }
    }
-
+   
    return result
        .filter(prop => typeof obj[prop] !== 'function');
 };
-
-export const getOwnProps;
