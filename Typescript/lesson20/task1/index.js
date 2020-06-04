@@ -21,9 +21,6 @@ export class User {
     }
 
     createEmpty(name, age) {
-        this.name = '';
-        this.age = null;
+        const user = new User(name, age);
     }
 }
-
-const user = new User('Tom', 17);
