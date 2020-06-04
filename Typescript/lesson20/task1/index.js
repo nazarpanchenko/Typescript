@@ -20,9 +20,9 @@ export class User {
        return this.age < 0 ? false : this.age;
     }
 
-    createEmpty() {
-        User.name = '';
-        User.age = null;
+    createEmpty(name, age) {
+        this.name = '';
+        this.age = null;
     }
 }
 
