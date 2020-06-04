@@ -14,8 +14,8 @@ export class Vehicle {
 }
 
 export class Ship extends Vehicle {
-    constructor(maxSpeed) {
-        super(name);
+    constructor(name, numberOfWheels, maxSpeed) {
+        super(name, false);
         this.maxSpeed = maxSpeed;
     }
 
@@ -33,3 +33,4 @@ export class Ship extends Vehicle {
 const ship = new Ship('Argo', 18);
 
 ship.move();
+ship.stop();
