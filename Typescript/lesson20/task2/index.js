@@ -14,21 +14,22 @@ export class Vehicle {
 }
 
 export class Ship extends Vehicle {
-    constructor(name, numberOfWheels, maxSpeed) {
-        this.name = name;
-        this.numberOfWheels = numberOfWheels;
+    constructor(maxSpeed) {
+        super(name);
         this.maxSpeed = maxSpeed;
     }
 
     move() {
         console.log(`${this.name} lifting anchor up`);
-        Vehicle.move();
+        super.move();
     }
 
     stop() {
         console.log(`${this.name} lifting anchor down`);
-        Vehicle.stop();
+        super.stop();
     }
 }
 
-const ship = new Ship('Argo', false);
+const ship = new Ship('Argo', 18);
+
+ship.move();
