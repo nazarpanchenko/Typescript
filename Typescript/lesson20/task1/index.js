@@ -20,7 +20,11 @@ export class User {
        return this.age < 0 ? false : this.age;
     }
 
-    createEmpty(name, age) {
-        const user = new User(name, age);
+    static createEmpty() {
+        const user = new User('', null);
+
+        return user;
     }
 }
+
+User.createEmpty();
