@@ -22,9 +22,13 @@ export class Ship extends Vehicle {
 
     move() {
         console.log(`${this.name} lifting anchor up`);
+        Vehicle.move();
     }
 
     stop() {
         console.log(`${this.name} lifting anchor down`);
+        Vehicle.stop();
     }
 }
+
+const ship = new Ship('Argo', false);
