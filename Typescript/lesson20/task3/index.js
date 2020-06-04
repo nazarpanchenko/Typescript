@@ -1,10 +1,8 @@
 export class Wallet {
-    constructor() {
-        this.balance = 0;
-    }
+    _balance = 0;
 
     getBalance() {
-        return this.balance;
+        return this._balance;
     }
 
     deposit(amount) {
@@ -23,3 +21,8 @@ export class Wallet {
 }
 
 const wallet = new Wallet();
+
+wallet.getBalance();
+wallet.deposit(45);
+wallet.getBalance();
+wallet.withdraw(134);
