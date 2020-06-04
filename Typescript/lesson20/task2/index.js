@@ -1,12 +1,30 @@
-export const getOwnProps = obj => {
-   const result = [];
+export class Vehicle {
+    constructor(name, numberOfWheels) {
+        this.name = name;
+        this.numberOfWheels = numberOfWheels;
+    }
+    
+    move() {
+        console.log(`${this.name} is moving`);
+    }
 
-   for(let prop in obj) {
-       if (obj.hasOwnProperty(prop)) {
-           result.push(prop);
-       }
-   }
-   
-   return result
-       .filter(prop => typeof obj[prop] !== 'function');
-};
+    stop() {
+        console.log(`${this.name} stopped`);
+    }
+}
+
+export class Ship extends Vehicle {
+    constructor(name, numberOfWheels, maxSpeed) {
+        this.name = name;
+        this.numberOfWheels = numberOfWheels;
+        this.maxSpeed = maxSpeed;
+    }
+
+    move() {
+        console.log(`${this.name} lifting anchor up`);
+    }
+
+    stop() {
+        console.log(`${this.name} lifting anchor down`);
+    }
+}
