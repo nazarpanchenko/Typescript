@@ -1,12 +1,13 @@
 export class Order {
     constructor(price, city, type) {
-
+        this.price = price;
+        this.city = city;
+        this.type = type;
+        this.id = '';
+        this.dateCreated = new Date();
+        this.isConfirmed = false;
+        this.dateConfirmed = new Date();
     }
-
-    id = '';
-    dateCreated = new Date();
-    isConfirmed = false;
-    dateConfirmed = new Date();
 
     checkPrice() {
         return this.price > 1000 ? true : false;
