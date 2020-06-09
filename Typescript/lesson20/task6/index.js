@@ -20,29 +20,23 @@ export class User {
 
 const user = new User('1', 'Tom', 'session-id');
 
-export class UserRepository {
+export class UserRepository extends User {
     constructor(users) {
+        super(id, name, sessionId);
         Object.freeze(users);
         this._users = users;
     }
 
-    set setUserNames(userName) {
-        this._userName = userName;
+    getUserNames() {
+        return this._users[this._name];
     }
 
-    set setUserIds(userId) {
-        this._userId = userId;    }
-
-    get getUserNames() {
-        return this._users;
+    getUserIds() {
+        return this._users[this._id];
     }
 
-    get getUserIds() {
-        return this._users[user.sessionId];
-    }
-
-    get getUserNameById() {
-        return this._users[user.id];
+    getUserNameById() {
+        return this._users[this._id];
     }
 }
 
