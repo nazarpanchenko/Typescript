@@ -30,7 +30,7 @@ export class UserRepository {
         let userNames = [];
 
         for (let user in this._users) {
-            userNames.push(this._users[user.name]);
+            userNames.push(this._users[user].name);
         }
 
         return userNames;
@@ -39,21 +39,21 @@ export class UserRepository {
     get userIds() {
         let userIds = [];
 
-        for (let id in this._users) {
-            userIds.push(this._users[user.id]);
+        for (let user in this._users) {
+            userIds.push(this._users[user].id);
         }
 
         return userIds;
     }
 
-    get userNameById(userId) {
-        let userName = '';
+    get userNameById() {
+        let userIds = [];
 
         for (let user in this._users) {
-            if (this._users[user.id] === userId) userName = this._users[user.id];
+            userIds.push(this._users[user].sessionId);
         }
 
-        return userName;
+        return userIds;
     }
 }
 
