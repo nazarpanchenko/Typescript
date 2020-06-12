@@ -22,11 +22,11 @@ const user = new User('1', 'Tom', 'session-id');
 
 export class UserRepository {
     constructor(users) {
-        Object.freeze(users);
         this._users = users;
+        Object.freeze(users);
     }
 
-    get userNames() {
+    getUserNames() {
         let userNames = [];
 
         for (let user in this._users) {
@@ -36,7 +36,7 @@ export class UserRepository {
         return userNames;
     }
 
-    get userIds() {
+    getUserIds() {
         let userIds = [];
 
         for (let user in this._users) {
@@ -46,7 +46,7 @@ export class UserRepository {
         return userIds;
     }
 
-    get userNameById() {
+    getUserNameById() {
         let userIds = [];
 
         for (let user in this._users) {
