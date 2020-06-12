@@ -46,14 +46,14 @@ export class UserRepository {
         return userIds;
     }
 
-    getUserNameById() {
-        let userIds = [];
+    getUserNameById(userId) {
+        let userName = '';
 
         for (let user in this._users) {
-            userIds.push(this._users[user].sessionId);
+            if (this._users[user].id === userId) userName = this._users[user].name;
         }
 
-        return userIds;
+        return userName;
     }
 }
 
