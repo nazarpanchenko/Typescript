@@ -26,6 +26,10 @@ export class UserRepository {
         Object.freeze(users);
     }
 
+    get users() {
+        return this._users;
+    }
+
     getUserNames() {
         let userNames = [];
 
