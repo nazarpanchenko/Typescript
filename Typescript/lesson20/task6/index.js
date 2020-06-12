@@ -5,20 +5,24 @@ export class User {
         this._sessionId = sessionId;
     }
 
-    get userId() {
+    get id() {
         return this._id;
     }
 
-    get userName() {
+    get name() {
         return this._name;
     }
 
-    get userSessionId() {
+    get sessionId() {
         return this._sessionId;
     }
 }
 
 const user = new User('1', 'Tom', 'session-id');
+
+console.log(user.name);
+user.name = 'Bob';
+console.log(user.name);
 
 export class UserRepository {
     constructor(users) {
@@ -46,8 +50,8 @@ export class UserRepository {
         return userIds;
     }
 
-    getUserNameById() {
-        return this._users[user.name];
+    getUserNameById(id) {
+        return this._users[this._users[id].name];
     }
 }
 
