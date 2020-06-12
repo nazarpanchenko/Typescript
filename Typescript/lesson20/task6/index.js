@@ -31,27 +31,27 @@ export class UserRepository {
     }
 
     getUserNames() {
-        let userNames = [];
+        // let userNames = [];
 
-        for (let user in this._users) {
-            userNames.push(this._users[user.name]);
-        }
+        // for (let user in this._users) {
+        //     userNames.push(this._users[user.name]);
+        // }
 
-        return userNames;
+        // return userNames;
     }
 
     getUserIds() {
-        let userIds = [];
+        // let userIds = [];
 
-        for (let id in this._users) {
-            userIds.push(this._users[user.id]);
-        }
+        // for (let id in this._users) {
+        //     userIds.push(this._users[user.id]);
+        // }
 
-        return userIds;
+        // return userIds;
     }
 
     getUserNameById(id) {
-        return this._users[this._users[id].name];
+        // return this._users[this._users[id].name];
     }
 }
 
