@@ -20,39 +20,46 @@ export class User {
 
 const user = new User('1', 'Tom', 'session-id');
 
-console.log(user.name);
-user.name = 'Bob';
-console.log(user.name);
-
 export class UserRepository {
     constructor(users) {
         Object.freeze(users);
         this._users = users;
     }
 
-    getUserNames() {
-        // let userNames = [];
+    get userNames() {
+        let userNames = [];
 
-        // for (let user in this._users) {
-        //     userNames.push(this._users[user.name]);
-        // }
+        for (let user in this._users) {
+            userNames.push(this._users[user.name]);
+        }
 
-        // return userNames;
+        return userNames;
     }
 
-    getUserIds() {
-        // let userIds = [];
+    get userIds() {
+        let userIds = [];
 
-        // for (let id in this._users) {
-        //     userIds.push(this._users[user.id]);
-        // }
+        for (let id in this._users) {
+            userIds.push(this._users[user.id]);
+        }
 
-        // return userIds;
+        return userIds;
     }
 
-    getUserNameById(id) {
-        // return this._users[this._users[id].name];
+    get userNameById(userId) {
+        let userName = '';
+
+        for (let user in this._users) {
+            if (this._users[user.id] === userId) userName = this._users[user.id];
+        }
+
+        return userName;
     }
 }
 
-const userRepository = new UserRepository([{ id : '1', name : 'Tom', sessionId : 'session-id' }, { id : '2', name : 'Bob', sessionId : 'session-id' }]);
+const userRepository = new UserRepository(
+    [
+        { id : '1', name : 'Tom', sessionId : 'session-id' }, 
+        { id : '2', name : 'Bob', sessionId : 'session-id' }
+    ]
+);
