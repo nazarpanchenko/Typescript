@@ -13,9 +13,9 @@ export const finishList = () => {
 
     let listItem4 = document.createElement('li');
     listItem4.textContent = '4';
-    listItem4.before(listItem5);
+    listItem5.before(listItem4);
 
     let listItem6 = document.createElement('li');
     listItem6.textContent = '6';
-    listItem5.after(listItem5);
+    listItem6.after(listItem5);
 };
