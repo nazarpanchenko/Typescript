@@ -1,13 +1,23 @@
-export const getTitleElement = () => {
-    const titleElem = document.querySelector('.title');
-    console.dir(titleElem);
+export const getTitle = () => {
+    const elem = document.querySelector('.title').textContent;
 
-    return titleElem;
+    return elem;
 };
 
-export const getInputElement = () => {
-    const inputElem = document.querySelector('input[type="text"]');
-    console.dir(inputElem);
+export const getDescription = () => {
+    const elem = document.querySelector('.about').innerText;
 
-    return inputElem;
+    return elem;
+};
+
+export const getPlans = () => {
+    const elem = document.querySelector('.plans').innerHTML;
+
+    return elem;
+};
+
+export const getGoal = () => {
+    const elem = document.querySelector('.goal').outerHTML;
+
+    return elem;
 };
