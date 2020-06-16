@@ -15,14 +15,13 @@ const renderListItems = listItems => {
         const listItemElem = document.createElement('li');
         listItemElem.classList.add('list__item');
 
+        if (done) {
+            listItemElem.classList.add('list__item_done');
+        }
+
         const checkboxElem = document.createElement('input');
         checkboxElem.setAttribute('type', 'checkbox');
         checkboxElem.checked = done;
-
-        if (done) {
-            checkboxItemElem.classList.add('list__item_done');
-        }
-        
         checkboxElem.classList.add('list-item__checkbox');
         listItemElem.append(checkboxElem, text);
 
