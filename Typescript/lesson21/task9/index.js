@@ -1,13 +1,21 @@
-export const getTitleElement = () => {
-    const titleElem = document.querySelector('.title');
-    console.dir(titleElem);
+export const finishList = () => {
+    let list = document.querySelector('.list');
+    
+    let listItem1 = document.createElement('li');
+    listItem1.textContent = '1';
+    list.prepend(listItem1);
 
-    return titleElem;
-};
+    let listItem8 = document.createElement('li');
+    listItem8.textContent = '8';
+    list.append(listItem8);
 
-export const getInputElement = () => {
-    const inputElem = document.querySelector('input[type="text"]');
-    console.dir(inputElem);
+    let listItem5 = document.querySelector('.special');
 
-    return inputElem;
+    let listItem4 = document.createElement('li');
+    listItem4.textContent = '4';
+    listItem4.before(listItem5);
+
+    let listItem6 = document.createElement('li');
+    listItem6.textContent = '6';
+    listItem5.after(listItem5);
 };
