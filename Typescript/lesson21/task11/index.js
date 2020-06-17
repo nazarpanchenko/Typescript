@@ -9,7 +9,7 @@ export const manageClasses = () => {
     three.classList.toggle('three_done');
 
     let four = document.querySelector('.four');
-    if (four.hasClass('some-class')) four.classList.add('another-class');
+    if (four.classList.contains('some-class')) four.classList.add('another-class');
 };
 
 manageClasses();
