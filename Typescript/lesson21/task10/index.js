@@ -2,12 +2,13 @@ export const finishForm = () => {
     const form = document.querySelector('form');
     const loginInputElem = document.createElement('input');
     form.append(loginInputElem);
+    loginInputElem.setAttribute('type', 'text');
+    loginInputElem.setAttribute('name', 'login');
 
-    loginInputElem.setAttribute('type', 'password');
-    loginInputElem.setAttribute('name', 'password');
-
-    const passwordInputElem = document.querySelector('input[type="text"]');
-    passwordInputElem.setAttribute('name', 'login');
+    const passwordInputElem = document.createElement('input');
+    form.append(passwordInputElem);
+    passwordInputElem.setAttribute('type', 'password');
+    passwordInputElem.setAttribute('name', 'password');
 };
 
 finishForm();
