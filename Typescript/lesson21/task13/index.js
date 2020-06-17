@@ -1,8 +1,6 @@
 export const getSection = (num) => {
-   let elem = document.querySelectorAll(`span[data-number="${num}"]`);
-   console.log(elem);
+   let elem = document.querySelector(`span[data-number="${num}"]`);
    let elemParent = elem.parentNode;
-   console.log(elemParent);
 
    if (+(elem.dataset.number) === num) return elemParent.dataset.section;
 };
