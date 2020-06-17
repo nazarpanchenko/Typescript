@@ -12,4 +12,3 @@ export const manageClasses = () => {
     if (four.classList.contains('some-class')) four.classList.add('another-class');
 };
 
-manageClasses();
