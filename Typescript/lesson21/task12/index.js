@@ -1,7 +1,10 @@
 export const squaredNumbers = () => {
-    let elem = document.querySelector('.number');
-    let squaredNum = +(elem.dataset.number) * 2;
-    elem.dataset.squaredNumber = '' + squaredNum;
+    let elem = document.getElementsByClassName('.number');
+
+    for (let i = 0; i < elem.length; i++) {
+        let squaredNum = +(elem[i].dataset.number) * 2;
+        elem[i].dataset.squaredNumber = '' + squaredNum;
+    }
 };
 
 squaredNumbers();

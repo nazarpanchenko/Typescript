@@ -1,12 +1,10 @@
 export const getSection = (num) => {
-   let span = document.querySelector('span');
-   let div = document.querySelector('.box');
+   let elem = document.querySelectorAll(`span[data-number="${num}"]`);
+   console.log(elem);
+   let elemParent = elem.parentNode;
+   console.log(elemParent);
 
-   let spanValue = `span[data-number="${num}"]`;
-
-   let dataSection = div.dataset.section;
-
-   if (+span.dataset.number === num) return dataSection;
+   if (+(elem.dataset.number) === num) return elemParent.dataset.section;
 };
 
 console.log(getSection(5));
