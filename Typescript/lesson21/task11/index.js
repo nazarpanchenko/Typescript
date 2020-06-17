@@ -1,13 +1,13 @@
-export const getTitleElement = () => {
-    const titleElem = document.querySelector('.title');
-    console.dir(titleElem);
+export const manageClasses = () => {
+    let one = document.querySelector('.one');
+    one.classList.add('selected');
 
-    return titleElem;
-};
+    let two = document.querySelector('.two');
+    two.classList.remove('selected');
 
-export const getInputElement = () => {
-    const inputElem = document.querySelector('input[type="text"]');
-    console.dir(inputElem);
+    let three = document.querySelector('.three');
+    three.classList.toggle('three_done');
 
-    return inputElem;
+    let four = document.querySelector('.four');
+    if (four.hasClass('some-class')) four.classList.add('another-class');
 };
