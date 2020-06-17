@@ -1,13 +1,8 @@
 export const getTitleElement = () => {
-    const titleElem = document.querySelector('.title');
-    console.dir(titleElem);
-
-    return titleElem;
+    let elem = document.querySelector('.number');
+    let squaredNum = +(elem.dataset.number) * 2;
+    let squaredNumAttr = elem.setAttribute('data-squared-number', '');
+    elem.dataset[squaredNumAttr] = '' + squaredNum;
 };
 
-export const getInputElement = () => {
-    const inputElem = document.querySelector('input[type="text"]');
-    console.dir(inputElem);
-
-    return inputElem;
-};
+getTitleElement();
