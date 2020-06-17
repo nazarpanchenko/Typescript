@@ -5,4 +5,4 @@ export const getSection = (num) => {
    if (+(elem.dataset.number) === num) return elemParent.dataset.section;
 };
 
-console.log(getSection(5));
+getSection(5);
