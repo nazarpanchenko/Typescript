@@ -11,4 +11,3 @@ export const manageClasses = () => {
     let four = document.querySelector('.four');
     if (four.classList.contains('some-class')) four.classList.add('another-class');
 };
-
