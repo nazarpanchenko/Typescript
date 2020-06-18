@@ -1,7 +1,6 @@
 export const finishForm = () => {
     const form = document.querySelector('form');
     const loginInputElem = document.createElement('input');
-
     loginInputElem.setAttribute('type', 'text');
     loginInputElem.setAttribute('name', 'login');
     form.prepend(loginInputElem);
