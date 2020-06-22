@@ -7,7 +7,7 @@ const click = () => {
 };
 
 btn.addEventListener('click', () => {
-    click();
-
     if (clicked === 1) break;
+    
+    click();
 });
