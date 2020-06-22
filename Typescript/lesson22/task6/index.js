@@ -2,12 +2,12 @@ const btn = document.querySelector('.single-use-btn');
 let clicked = 0;
 
 const click = () => {
-    console.log('clicked');
     ++clicked;
+    console.log('clicked');
 };
 
-btn.addEventListener('click', () => {
-    if (clicked === 1) break;
-    
-    click();
-});
+btn.addEventListener('click', click);
+
+if (clicked === 1) {
+    btn.removeEventListener('click', click);
+}
