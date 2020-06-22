@@ -4,3 +4,5 @@ const handleClick = (event) => {
     const clicked = event.target.textContent;
     console.log(clicked);
 };
+
+btn.addEventListener('click', handleClick);
