@@ -19,8 +19,8 @@ const logGreySpan = logTarget.bind(null, 'SPAN', 'grey');
 divElem.addEventListener('click', logGreyDiv, true);
 divElem.addEventListener('click', logGreenDiv);
 
-pElem.addEventListener('click', logGreyP, true);
 pElem.addEventListener('click', logGreenP);
+pElem.addEventListener('click', logGreyP, true);
 
-spanElem.addEventListener('click', logGreySpan, true);
 spanElem.addEventListener('click', logGreenSpan);
+spanElem.addEventListener('click', logGreySpan, true);
