@@ -8,6 +8,12 @@ const logTarget = (text, color) => {
     eventListElem.innerHTML += `<span style="color : ${color}; margin-left: 8px;">${text}</span>`;
 };
 
+const clearTarget = () => {
+    const eventListElem = document.querySelector('.events-list');
+
+    eventListElem.innerHTML = '';
+};
+
 const logGreenDiv = logTarget.bind(null, 'DIV', 'green');
 const logGreenP = logTarget.bind(null, 'P', 'green');
 const logGreenSpan = logTarget.bind(null, 'SPAN', 'green');
@@ -24,3 +30,20 @@ pElem.addEventListener('click', logGreyP, true);
 
 spanElem.addEventListener('click', logGreenSpan);
 spanElem.addEventListener('click', logGreySpan, true);
+
+const clearBtn = document.querySelector('.clear-btn');
+clearBtn.addEventListener('click', clearTarget);
+
+const removeTarget = () => {
+    divElem.removeEventListener('click', logGreyDiv, false);
+    divElem.removeEventListener('click', logGreenDiv);
+
+    pElem.removeEventListener('click', logGreenP);
+    pElem.removeEventListener('click', logGreyP, true);
+
+    spanElem.removeEventListener('click', logGreenSpan);
+    spanElem.removeEventListener('click', logGreySpan, true);
+};
+
+const removeBtn = document.querySelector('.remove-handlers-btn');
+removeBtn.addEventListener('click', removeTarget);
