@@ -1,5 +1,5 @@
 const handleClick = (event) => {
-    console.log(event.target.data);
+    console.log(event.target.dataset);
 };
 
 const pagination = document.getElementsByTagName("button");
