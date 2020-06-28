@@ -11,7 +11,7 @@ const generateNumbersRange = (from, to) => {
 const getLineSeats = () => generateNumbersRange(1, 10)
     .map(seatNumber => `
         <div
-            class="sector__seat
+            class="sector__seat"
             data-seat-number="${seatNumber}"
         ></div>
     `).join('');
@@ -23,7 +23,7 @@ const getSectorLines = () => {
     return generateNumbersRange(1, 10)
         .map(lineNumber => `
             <div
-                class="sector__line
+                class="sector__line"
                 data-line-number="${lineNumber}"
             >${seatsString}</div>
     `).join('');
