@@ -59,7 +59,7 @@ const onCreateTask = () => {
     if (createTaskField.value === '') return;
 
     tasks.push({ text : createTaskField.value, done : false });
-    createTaskField.value === ''
+    createTaskField.value === '';
     renderListItems(tasks);
 };
 
