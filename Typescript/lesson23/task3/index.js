@@ -40,6 +40,7 @@ const renderListItems = listItems => {
             listItemElem.append(checkboxElem, text);
 
             return listItemElem;
+            
         }
     );
 
