@@ -49,11 +49,14 @@ const renderListItems = listItems => {
 renderListItems(tasks);
 
 const onTaskStatusChange = event => {
-    let taskId = +(event.target.parentNode.dataset.id);
+    let taskId = +(event.target.closest('li').dataset.id);
 
     tasks[taskId].done = !tasks[taskId].done;
     renderListItems(tasks);
 };
+
+const listElem = document.querySelector('.list');
+listElem.addEventListener('click', onTaskStatusChange);
 
 const onCreateTask = () => {
     const createTaskField = document.querySelector('.task-input');
@@ -64,12 +67,6 @@ const onCreateTask = () => {
     createTaskField.value === '';
     renderListItems(tasks);
 };
-
-const checkboxElem = document.getElementsByClassName('list-item__checkbox');
-
-for (let i = 0; i < checkboxElem.length; i++) {
-    checkboxElem[i].addEventListener('click', onTaskStatusChange);
-}
 
 const createTaskBtn = document.querySelector('.create-task-btn');
 createTaskBtn.addEventListener('click', onCreateTask);
