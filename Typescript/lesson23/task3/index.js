@@ -22,6 +22,8 @@ const renderListItems = listItems => {
     const listItemsElems = listItems
         .sort((a, b) => a.done - b.done)
         .map(({ text, done }, index) => {
+            if (listElem.hasChildNodes()) listElem.removeChild(listElem.childNodes[0]);
+            
             const listItemElem = document.createElement('li');
 
             listItemElem.classList.add('list__item');
