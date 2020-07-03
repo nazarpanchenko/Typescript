@@ -49,13 +49,14 @@ const renderListItems = listItems => {
 
 renderListItems(tasks);
 
-const onTaskStatusChange = event => {
-    if (event.target.matches('.list-item__checkbox')) {
-        let taskId = +(event.target.closest('li').dataset.id);
 
-        tasks[taskId].done = !tasks[taskId].done;
-        renderListItems(tasks);
-    }
+const onTaskStatusChange = event => {
+    if (!event.target.matches('.list-item__checkbox')) return;
+
+    let taskId = +(event.target.closest('li').dataset.id);
+
+    tasks[taskId].done = !tasks[taskId].done;
+    renderListItems(tasks);
 };
 
 const listElem = document.querySelector('.list');
