@@ -51,7 +51,7 @@ renderListItems(tasks);
 
 
 const onTaskStatusChange = event => {
-    if (!event.target.tagName == 'INPUT') return;
+    if (!event.target.classList.contains('list-item__checkbox')) return;
 
     let taskId = +(event.target.closest('li').dataset.id);
 
