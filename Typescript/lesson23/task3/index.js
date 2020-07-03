@@ -53,7 +53,7 @@ renderListItems(tasks);
 const onTaskStatusChange = event => {
     if (!event.target.classList.contains('list-item__checkbox')) return;
 
-    let taskId = +(event.target.closest('li').dataset.id);
+    let taskId = +(event.target.closest('.list__item').dataset.id);
 
     tasks[taskId].done = !tasks[taskId].done;
     renderListItems(tasks);
