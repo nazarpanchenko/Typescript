@@ -51,7 +51,7 @@ renderListItems(tasks);
 
 
 const onTaskStatusChange = event => {
-    if (!event.target.tagName == 'input') return;
+    if (!event.target.tagName == 'INPUT') return;
 
     let taskId = +(event.target.closest('li').dataset.id);
 
