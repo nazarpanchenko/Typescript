@@ -37,7 +37,7 @@ const renderListItems = listItems => {
 
             checkboxElem.setAttribute('type', 'checkbox');
             checkboxElem.checked = done;
-            checkboxElem.classList.add('list-item__checkbox');
+            checkboxElem.classList.add('list__item-checkbox');
             checkboxElem.dataset.id = id;
 
             listItemElem.append(checkboxElem, text);
@@ -53,11 +53,11 @@ const renderListItems = listItems => {
 renderListItems(tasks);
 
 const onTaskStatusChange = event => {
-    const isChecked = event.target.classList.contains('list-item__checkbox');
+    const isChecked = event.target.classList.contains('list__item-checkbox');
 
     if (!isChecked) return;
 
-    // const taskId = +(event.target.parentNode.dataset.id);
+    // const taskId = +(event.target.dataset.id);
 
     // tasks[taskId].done = !tasks[taskId].done;
     const taskData = tasks.find(task => task.id === event.target.dataset.id);
