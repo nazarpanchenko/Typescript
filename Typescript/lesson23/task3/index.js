@@ -1,33 +1,36 @@
+let id = 0;
+
 const tasks = [
-    { text: 'Buy milk', done: false },
-    { text: 'Pick up Tom from airport', done: false },
-    { text: 'Visit party', done: false },
-    { text: 'Visit doctor', done: true },
-    { text: 'Buy meat', done: true }
+    { text: 'Buy milk', done: false, id : '' + (++id) },
+    { text: 'Pick up Tom from airport', done: false, id : '' + (++id) },
+    { text: 'Visit party', done: false, id : '' + (++id) },
+    { text: 'Visit doctor', done: true, id : '' + (++id) },
+    { text: 'Buy meat', done: true, id : '' + (++id) }
 ];
 
-const generateListItemId = (from, to) => {
-    let result = [];
+// const generateListItemId = (from, to) => {
+//     let result = [];
 
-    for (let i = from; i < to; i++) {
-        result.push('' + i);
-    }
+//     for (let i = from; i < to; i++) {
+//         result.push('' + i);
+//     }
 
-    return result;
-};
+//     return result;
+// };
 
 const renderListItems = listItems => {
     const listElem = document.querySelector('.list');
 
     const listItemsElems = listItems
         .sort((a, b) => a.done - b.done)
-        .map(({ text, done }, index) => {
+        .map(({ text, done, id }) => {
             if (listElem.hasChildNodes()) listElem.removeChild(listElem.childNodes[0]);
             
             const listItemElem = document.createElement('li');
 
             listItemElem.classList.add('list__item');
-            listItemElem.dataset.id = generateListItemId(0, listItems.length)[index];
+            listItemElem.dataset.id = id;
+            // listItemElem.dataset.id = generateListItemId(0, listItems.length)[index];
 
             if (done) listItemElem.classList.add('list__item_done');
 
@@ -54,11 +57,11 @@ const onTaskStatusChange = event => {
 
     if (!isChecked) return;
 
-    const taskId = +(event.target.parentNode.dataset.id);
+    // const taskId = +(event.target.parentNode.dataset.id);
 
-    tasks[taskId].done = !tasks[taskId].done;
-    // const taskData = tasks.find(task => task.id === event.target.dataset.id);
-    // Object.assign(taskData, { done : event.target.checked });
+    // tasks[taskId].done = !tasks[taskId].done;
+    const taskData = tasks.find(task => task.id === event.target.parentNode.dataset.id);
+    Object.assign(taskData, { done : event.target.checked });
     renderListItems(tasks);
 };
 
@@ -70,7 +73,7 @@ const onCreateTask = () => {
 
     if (createTaskField.value === '') return;
 
-    tasks.push({ text : createTaskField.value, done : false });
+    tasks.push({ text : createTaskField.value, done : false, id : '' + (++id) });
     createTaskField.value === '';
     renderListItems(tasks);
 };
