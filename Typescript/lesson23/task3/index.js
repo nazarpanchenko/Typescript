@@ -50,7 +50,7 @@ const renderListItems = listItems => {
 renderListItems(tasks);
 
 const onTaskStatusChange = event => {
-    const isCheckbox = event.target.classList.contains('list-item__checkbox');
+    const isCheckbox = event.target.classList.contains('list__item-checkbox');
 
     if (!isCheckbox) {
         return;
