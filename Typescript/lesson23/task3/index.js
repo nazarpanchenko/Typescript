@@ -52,11 +52,13 @@ renderListItems(tasks);
 const onTaskStatusChange = event => {
     const isChecked = event.target.classList.contains('list-item__checkbox');
 
-    if (isChecked) return;
+    if (!isChecked) return;
 
-    let taskId = +(event.target.closest('.list__item').dataset.id);
+    const taskId = +(event.target.parentNode.dataset.id);
 
     tasks[taskId].done = !tasks[taskId].done;
+    // const taskData = tasks.find(task => task.id === event.target.dataset.id);
+    // Object.assign(taskData, { done : event.target.checked });
     renderListItems(tasks);
 };
 
