@@ -49,13 +49,15 @@ const renderListItems = listItems => {
 
 renderListItems(tasks);
 
-
 const onTaskStatusChange = event => {
-    if (!event.target.classList.contains('list-item__checkbox')) return;
+    const isCheckbox = event.target.classList.contains('list-item__checkbox');
 
-    let taskId = +(event.target.closest('.list__item').dataset.id);
+    if (!isCheckbox) {
+        return;
+    }
 
-    tasks[taskId].done = !tasks[taskId].done;
+    const taskData = tasks.find(task => task.id === event.target.dataset.id);
+    Object.assign(taskData, { done : event.target.checked });
     renderListItems(tasks);
 };
 
