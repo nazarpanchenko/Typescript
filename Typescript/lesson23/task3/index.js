@@ -29,7 +29,6 @@ const renderListItems = listItems => {
             const listItemElem = document.createElement('li');
 
             listItemElem.classList.add('list__item');
-            listItemElem.dataset.id = id;
             // listItemElem.dataset.id = generateListItemId(0, listItems.length)[index];
 
             if (done) listItemElem.classList.add('list__item_done');
@@ -39,6 +38,7 @@ const renderListItems = listItems => {
             checkboxElem.setAttribute('type', 'checkbox');
             checkboxElem.checked = done;
             checkboxElem.classList.add('list-item__checkbox');
+            checkboxElem.dataset.id = id;
 
             listItemElem.append(checkboxElem, text);
 
@@ -60,7 +60,7 @@ const onTaskStatusChange = event => {
     // const taskId = +(event.target.parentNode.dataset.id);
 
     // tasks[taskId].done = !tasks[taskId].done;
-    const taskData = tasks.find(task => task.id === event.target.parentNode.dataset.id);
+    const taskData = tasks.find(task => task.id === event.target.dataset.id);
     Object.assign(taskData, { done : event.target.checked });
     renderListItems(tasks);
 };
