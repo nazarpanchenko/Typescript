@@ -6,7 +6,6 @@ const formatter = new Intl.DateTimeFormat('en', {
 });
 
 export function getGreenwichTime(date) {
-    return new Date(Date.UTC(2020, 0, 6, 43));
     return formatter.format(date);
 }
 
