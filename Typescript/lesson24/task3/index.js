@@ -1,82 +1,18 @@
-let id = 0;
+export function getDiff(startDate, endDate) {
+    let timeDifference = Math.abs(endDate - startDate) / 1000;
 
-const tasks = [
-    { text: 'Buy milk', done: false, id : '' + (++id) },
-    { text: 'Pick up Tom from airport', done: false, id : '' + (++id) },
-    { text: 'Visit party', done: false, id : '' + (++id) },
-    { text: 'Visit doctor', done: true, id : '' + (++id) },
-    { text: 'Buy meat', done: true, id : '' + (++id) }
-];
+    const days = Math.floor(timeDifference / 86400);
+    timeDifference -= days * 86400; 
 
-// const generateListItemId = (from, to) => {
-//     let result = [];
+    const hours = Math.floor(timeDifference / 3600) % 24;
+    timeDifference -= hours * 3600;
 
-//     for (let i = from; i < to; i++) {
-//         result.push('' + i);
-//     }
+    const minutes = Math.floor(timeDifference / 60) % 60;
+    timeDifference -= minutes * 60;
 
-//     return result;
-// };
+    const seconds = timeDifference % 60;
 
-const renderListItems = listItems => {
-    const listElem = document.querySelector('.list');
+    return '' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+}
 
-    const listItemsElems = listItems
-        .sort((a, b) => a.done - b.done)
-        .map(({ text, done, id }) => {
-            if (listElem.hasChildNodes()) listElem.removeChild(listElem.childNodes[0]);
-            
-            const listItemElem = document.createElement('li');
-
-            listItemElem.classList.add('list__item');
-            // listItemElem.dataset.id = generateListItemId(0, listItems.length)[index];
-
-            if (done) listItemElem.classList.add('list__item_done');
-
-            const checkboxElem = document.createElement('input');
-
-            checkboxElem.setAttribute('type', 'checkbox');
-            checkboxElem.checked = done;
-            checkboxElem.classList.add('list__item-checkbox');
-            checkboxElem.dataset.id = id;
-
-            listItemElem.append(checkboxElem, text);
-
-            return listItemElem;
-            
-        }
-    );
-
-    listElem.append(...listItemsElems);
-};
-
-renderListItems(tasks);
-
-const onTaskStatusChange = event => {
-    const isChecked = event.target.classList.contains('list__item-checkbox');
-
-    if (!isChecked) return;
-
-    // const taskId = +(event.target.dataset.id);
-
-    // tasks[taskId].done = !tasks[taskId].done;
-    const taskData = tasks.find(task => task.id === event.target.dataset.id);
-    Object.assign(taskData, { done : event.target.checked });
-    renderListItems(tasks);
-};
-
-const listElem = document.querySelector('.list');
-listElem.addEventListener('click', onTaskStatusChange);
-
-const onCreateTask = () => {
-    const createTaskField = document.querySelector('.task-input');
-
-    if (createTaskField.value === '') return;
-
-    tasks.push({ text : createTaskField.value, done : false, id : '' + (++id) });
-    createTaskField.value === '';
-    renderListItems(tasks);
-};
-
-const createTaskBtn = document.querySelector('.create-task-btn');
-createTaskBtn.addEventListener('click', onCreateTask);
+getDiff(new Date(2020, 7, 6, 23, 15, 29), new Date(2020, 8, 6, 20, 22, 39));
