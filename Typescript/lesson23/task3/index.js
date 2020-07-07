@@ -8,16 +8,6 @@ const tasks = [
     { text: 'Buy meat', done: true, id : '' + (++id) }
 ];
 
-// const generateListItemId = (from, to) => {
-//     let result = [];
-
-//     for (let i = from; i < to; i++) {
-//         result.push('' + i);
-//     }
-
-//     return result;
-// };
-
 const renderListItems = listItems => {
     const listElem = document.querySelector('.list');
 
@@ -29,7 +19,6 @@ const renderListItems = listItems => {
             const listItemElem = document.createElement('li');
 
             listItemElem.classList.add('list__item');
-            // listItemElem.dataset.id = generateListItemId(0, listItems.length)[index];
 
             if (done) listItemElem.classList.add('list__item_done');
 
@@ -57,9 +46,6 @@ const onTaskStatusChange = event => {
 
     if (!isChecked) return;
 
-    // const taskId = +(event.target.dataset.id);
-
-    // tasks[taskId].done = !tasks[taskId].done;
     const taskData = tasks.find(task => task.id === event.target.dataset.id);
     Object.assign(taskData, { done : event.target.checked });
     renderListItems(tasks);

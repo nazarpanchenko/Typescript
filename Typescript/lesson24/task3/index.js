@@ -24,6 +24,17 @@ export function getDiff(startDate, endDate) {
 
     const timeDifference = '' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
 
+    // const formatter = new Intl.DateTimeFormat("en", {
+    //     month: "short",
+    //     day: "numeric",
+    //     hour: "numeric",
+    //     minute: "numeric",
+    //     second: "numeric"
+    // });
+
+    // formatter.format(timeDifference);
+    // console.log(timeDifference);
+
     return timeDifference;
 }
 
