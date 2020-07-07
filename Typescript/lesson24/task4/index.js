@@ -12,9 +12,8 @@ const renderListItems = listItems => {
     const listElem = document.querySelector('.list');
 
     const listItemsElems = listItems
-        .sort((a, b) => a.date - b.date)
-        .sort((a, b) => a.done - b.done)
-        .map(({ text, done, id, date }) => {
+        .sort((a, b) => b.date - a.date)
+        .map(({ text, done, id }) => {
             if (listElem.hasChildNodes()) listElem.removeChild(listElem.childNodes[0]);
             
             const listItemElem = document.createElement('li');
