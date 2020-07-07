@@ -13,6 +13,7 @@ const renderListItems = listItems => {
 
     const listItemsElems = listItems
         .sort((a, b) => b.date - a.date)
+        .sort((a, b) => a.done - b.done)
         .map(({ text, done, id }) => {
             if (listElem.hasChildNodes()) listElem.removeChild(listElem.childNodes[0]);
             
