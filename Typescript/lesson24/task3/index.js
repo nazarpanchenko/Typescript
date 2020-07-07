@@ -1,15 +1,15 @@
 export function getDiff(startDate, endDate) {
-    // const biggerDate = (endDate > startDate) ? 
-    //     endDate : (startDate > endDate) ? 
-    //     startDate : 
-    //     endDate;
+    const biggerDate = (endDate > startDate) ? 
+        endDate : (startDate > endDate) ? 
+        startDate : 
+        endDate;
 
-    // const smallerDate = (startDate < endDate) ? 
-    //     startDate : (endDate < startDate) ? 
-    //     endDate : 
-    //     startDate;
+    const smallerDate = (startDate < endDate) ? 
+        startDate : (endDate < startDate) ? 
+        endDate : 
+        startDate;
 
-    let diffInMilliSeconds = Math.abs(startDate - endDate) / 1000;
+    let diffInMilliSeconds = Math.abs(biggerDate - smallerDate) / 1000;
 
     const days = Math.floor(diffInMilliSeconds / 86400);
     diffInMilliSeconds -= days * 86400;
