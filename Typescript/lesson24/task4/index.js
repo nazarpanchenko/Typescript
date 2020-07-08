@@ -8,6 +8,7 @@ const tasks = [
     { text: 'Buy meat', done: true, id : '' + (++id), date : new Date() }
 ];
 
+
 const renderListItems = listItems => {
     const listElem = document.querySelector('.list');
 
