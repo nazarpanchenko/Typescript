@@ -1,5 +1,15 @@
 export function getDiff(startDate, endDate) {
-    let diffInMilliSeconds = Math.abs(endDate - startDate) / 1000;
+    const biggerDate = (endDate > startDate) ? 
+        endDate : (startDate > endDate) ? 
+        startDate : 
+        endDate;
+
+    const smallerDate = (startDate < endDate) ? 
+        startDate : (endDate < startDate) ? 
+        endDate : 
+        startDate;
+
+    let diffInMilliSeconds = Math.abs(biggerDate - smallerDate) / 1000;
 
     const days = Math.floor(diffInMilliSeconds / 86400);
     diffInMilliSeconds -= days * 86400;
@@ -25,7 +35,6 @@ export function getDiff(startDate, endDate) {
     // formatter.format(timeDifference);
     // console.log(timeDifference);
 
-    console.log(timeDifference);
     return timeDifference;
 }
 
