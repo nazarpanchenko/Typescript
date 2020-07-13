@@ -8,16 +8,21 @@ const tasks = [
     { text: 'Buy meat', done: true, id : '' + (++id), date : new Date() }
 ];
 
-const sortTasks = (currentTask, nextTask) => {
-    return nextTask.date > currentTask.date ? 
-        (currentTask.done > nextTask.done ? 1 : -1) : -1;
+const compareTasks = (a, b) => {
+    if (a.done - b.done !== 0) {
+        return a.done - b.done;
+    }
+    if (a.done) {
+        return new Date(b.finishDate) - new Date(a.finishDate);
+    }
+    return new Date(b.createDate) - new Date(a.createDate);
 };
 
 const renderListItems = listItems => {
     const listElem = document.querySelector('.list');
 
     const listItemsElems = listItems
-        .sort(sortTasks)
+        .sort(compareTasks)
         .map(({ text, done, id }) => {
             if (listElem.hasChildNodes()) listElem.removeChild(listElem.childNodes[0]);
             
