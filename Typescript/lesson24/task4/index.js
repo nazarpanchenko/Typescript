@@ -71,7 +71,7 @@ const onCreateTask = () => {
 
     if (createTaskField.value === '') return;
 
-    tasks.push({ text : createTaskField.value, done : false, id : '' + (++id), date : new Date() });
+    tasks.push({ text : createTaskField.value, done : false, id : '' + (++id), createDate : new Date().getTime(), finishDate : new Date().getTime() });
     createTaskField.value === '';
     renderListItems(tasks);
 };
