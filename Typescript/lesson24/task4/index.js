@@ -1,11 +1,11 @@
 let id = 0;
 
 const tasks = [
-    { text: 'Buy milk', done: false, id : '' + (++id), createDate : new Date(), finishDate : new Date },
-    { text: 'Pick up Tom from airport', done: false, id : '' + (++id), createDate : new Date(), finishDate : new Date },
-    { text: 'Visit party', done: false, id : '' + (++id), createDate : new Date(), finishDate : new Date },
-    { text: 'Visit doctor', done: true, id : '' + (++id), createDate : new Date(), finishDate : new Date },
-    { text: 'Buy meat', done: true, id : '' + (++id), createDate : new Date(), finishDate : new Date }
+    { text: 'Buy milk', done: false, id : '' + (++id), createDate : new Date() },
+    { text: 'Pick up Tom from airport', done: false, id : '' + (++id), createDate : new Date() },
+    { text: 'Visit party', done: false, id : '' + (++id), createDate : new Date() },
+    { text: 'Visit doctor', done: true, id : '' + (++id), finishDate : new Date },
+    { text: 'Buy meat', done: true, id : '' + (++id), finishDate : new Date }
 ];
 
 const compareTasks = (a, b) => {
