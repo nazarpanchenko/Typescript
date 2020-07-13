@@ -1,20 +1,22 @@
 let id = 0;
 
 const tasks = [
-    { text: 'Buy milk', done: false, id : '' + (++id), createDate : new Date() },
-    { text: 'Pick up Tom from airport', done: false, id : '' + (++id), createDate : new Date() },
-    { text: 'Visit party', done: false, id : '' + (++id), createDate : new Date() },
-    { text: 'Visit doctor', done: true, id : '' + (++id), finishDate : new Date },
-    { text: 'Buy meat', done: true, id : '' + (++id), finishDate : new Date }
+    { text: 'Buy milk', done: false, id : '' + (++id), createDate : new Date().getTime(), finishDate : new Date().getTime() },
+    { text: 'Pick up Tom from airport', done: false, id : '' + (++id), createDate : new Date().getTime(), finishDate : new Date().getTime() },
+    { text: 'Visit party', done: false, id : '' + (++id), createDate : new Date().getTime(), finishDate : new Date().getTime() },
+    { text: 'Visit doctor', done: true, id : '' + (++id), createDate : new Date().getTime(), finishDate : new Date().getTime() },
+    { text: 'Buy meat', done: true, id : '' + (++id), createDate : new Date().getTime(), finishDate : new Date().getTime() }
 ];
 
 const compareTasks = (a, b) => {
     if (a.done - b.done !== 0) {
         return a.done - b.done;
     }
+
     if (a.done) {
         return new Date(b.finishDate) - new Date(a.finishDate);
     }
+    
     return new Date(b.createDate) - new Date(a.createDate);
 };
 
