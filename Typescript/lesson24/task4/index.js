@@ -8,11 +8,16 @@ const tasks = [
     { text: 'Buy meat', done: true, id : '' + (++id), date : new Date() }
 ];
 
+const sortTasks = (currentTask, nextTask) => {
+    return nextTask.date > currentTask.date ? 
+        (currentTask.done > nextTask.done ? 1 : -1) : -1;
+};
+
 const renderListItems = listItems => {
     const listElem = document.querySelector('.list');
 
     const listItemsElems = listItems
-        .sort((a, b) => b.date - a.date)
+        .sort(sortTasks)
         .map(({ text, done, id }) => {
             if (listElem.hasChildNodes()) listElem.removeChild(listElem.childNodes[0]);
             
