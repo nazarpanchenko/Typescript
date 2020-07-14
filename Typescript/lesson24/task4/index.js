@@ -1,9 +1,9 @@
 let id = 0;
 
 const tasks = [
-    { text: 'Buy milk', done: false, id : '' + (++id), createDate : new Date().getTime(), finishDate : new Date().getTime() },
-    { text: 'Pick up Tom from airport', done: false, id : '' + (++id), createDate : new Date().getTime(), finishDate : new Date().getTime() },
-    { text: 'Visit party', done: false, id : '' + (++id), createDate : new Date().getTime(), finishDate : new Date().getTime() },
+    { text: 'Buy milk', done: false, id : '' + (++id), createDate : new Date().getTime() },
+    { text: 'Pick up Tom from airport', done: false, id : '' + (++id), createDate : new Date().getTime() },
+    { text: 'Visit party', done: false, id : '' + (++id), createDate : new Date().getTime() },
     { text: 'Visit doctor', done: true, id : '' + (++id), createDate : new Date().getTime(), finishDate : new Date().getTime() },
     { text: 'Buy meat', done: true, id : '' + (++id), createDate : new Date().getTime(), finishDate : new Date().getTime() }
 ];
@@ -59,7 +59,7 @@ const onTaskStatusChange = event => {
     if (!isChecked) return;
 
     const taskData = tasks.find(task => task.id === event.target.dataset.id);
-    Object.assign(taskData, { done : event.target.checked });
+    Object.assign(taskData, { done : event.target.checked, finishDate : new Date().getTime() });
     renderListItems(tasks);
 };
 
@@ -71,7 +71,7 @@ const onCreateTask = () => {
 
     if (createTaskField.value === '') return;
 
-    tasks.push({ text : createTaskField.value, done : false, id : '' + (++id), createDate : new Date().getTime(), finishDate : new Date().getTime() });
+    tasks.push({ text : createTaskField.value, done : false, id : '' + (++id), createDate : new Date().getTime() });
     createTaskField.value === '';
     renderListItems(tasks);
 };

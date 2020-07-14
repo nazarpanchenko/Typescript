@@ -24,18 +24,8 @@ export function getDiff(startDate, endDate) {
 
     const timeDifference = '' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
 
-    // const formatter = new Intl.DateTimeFormat("en", {
-    //     month: "short",
-    //     day: "numeric",
-    //     hour: "numeric",
-    //     minute: "numeric",
-    //     second: "numeric"
-    // });
-
-    // formatter.format(timeDifference);
-    // console.log(timeDifference);
-
+    console.log(timeDifference);
     return timeDifference;
 }
 
-getDiff(new Date('07/07/2020 23:15:29'), new Date('06/08/2020 20:22:39'));
+getDiff(new Date('07/07/2020 20:22:39'), new Date('07/08/2020 20:22:39'));
