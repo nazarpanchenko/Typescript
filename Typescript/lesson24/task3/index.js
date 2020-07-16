@@ -9,23 +9,15 @@ export function getDiff(startDate, endDate) {
         endDate : 
         startDate;
 
-    let diffInMilliSeconds = Math.abs(biggerDate - smallerDate) / 1000;
-
-    const days = Math.floor(diffInMilliSeconds / 86400);
-    diffInMilliSeconds -= days * 86400;
-
-    const hours = Math.floor(diffInMilliSeconds / 3600) % 24;
-    diffInMilliSeconds -= hours * 3600;
-
-    const minutes = Math.floor(diffInMilliSeconds / 60) % 60;
-    diffInMilliSeconds -= minutes * 60;
-
-    const seconds = diffInMilliSeconds % 60;
-
-    const timeDifference = '' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
-
-    console.log(timeDifference);
-    return timeDifference;
+        const milliSeconds = Math.abs(biggerDate - smallerDate) / 1000;
+        const seconds = Math.floor(milliSeconds / 60);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+    
+        const timeDifference = '' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+    
+        return timeDifference;
 }
 
 getDiff(new Date('07/07/2020 20:22:39'), new Date('07/08/2020 20:22:39'));
