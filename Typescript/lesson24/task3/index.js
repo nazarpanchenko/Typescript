@@ -7,9 +7,13 @@ export const getDiff = (startDate, endDate) => {
         const difference = Math.abs(endDate - startDate);
         
         const daysLeft = Math.floor(difference / days);
+        const hoursLeft = Math.floor(daysLeft / hours);
+        const minutesLeft = Math.floor(hoursLeft / minutes);
+        const secondsLeft = Math.floor(minutesLeft / seconds);
     
-        const timeDifference = '' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+        const timeDifference = '' + daysLeft + 'd ' + hoursLeft + 'h ' + minutesLeft + 'm ' + secondsLeft + 's';
     
+        console.log(timeDifference);
         return timeDifference;
 };
 
