@@ -1,16 +1,21 @@
+const seconds = 1000;
+const minutes = seconds * 60;
+const hours = minutes * 60;
+const days = hours * 24;
+
 export const getDiff = (startDate, endDate) => {
-        let difference = Math.abs(endDate - startDate) / 1000;
+        let difference = Math.abs(endDate - startDate);
         
-        const daysLeft = Math.floor(difference / 86400);
-        difference -= daysLeft * 86400;
+        const daysLeft = Math.floor(difference / days);
+        difference -= daysLeft * days;
 
-        const hoursLeft = Math.floor(difference / 3600) % 24;
-        difference -= hoursLeft * 3600;
+        const hoursLeft = Math.floor(difference / hours);
+        difference -= hoursLeft * hours;
 
-        const minutesLeft = Math.floor(difference / 60) % 60;
-        difference -= minutesLeft * 60;
+        const minutesLeft = Math.floor(difference / minutes);
+        difference -= minutesLeft * minutes;
 
-        const secondsLeft = difference % 60;
+        const secondsLeft = difference % seconds;
     
         const timeDifference = '' + daysLeft + 'd ' + hoursLeft + 'h ' + minutesLeft + 'm ' + secondsLeft + 's';
     
