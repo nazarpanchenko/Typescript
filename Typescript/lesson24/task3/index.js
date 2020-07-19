@@ -12,7 +12,7 @@ export const getDiff = (startDate, endDate) => {
 
         const minutesLeft = Math.floor((difference % hours) / minutes);
 
-        const secondsLeft = (difference / seconds) % 60;
+        const secondsLeft = (difference % minutes) / seconds;
     
         const timeDifference = '' + daysLeft + 'd ' + hoursLeft + 'h ' + minutesLeft + 'm ' + secondsLeft + 's';
     
