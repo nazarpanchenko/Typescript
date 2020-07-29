@@ -1,9 +1,10 @@
-export const mult = a => b => a * b;
+export const printing = () => {
+    console.log('1');
+    setTimeout(() => console.log('2'), 0);
+    console.log('3');
+    setTimeout(() => console.log('4'), 1000);
+    console.log('5');
 
-export const twice = a => mult(a)(2);
+};
 
-export const triple = a => mult(a)(3);
-
-console.log(mult(5)(4));
-console.log(twice(7));
-console.log(triple(9));
+printing();
