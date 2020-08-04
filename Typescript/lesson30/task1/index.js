@@ -9,9 +9,7 @@ export const addImage = imgSrc => {
 
         const onImageLoaded = () => {
             const { width, height } = imgElem;
-            const imgResolution = { width, height };
-            imgResolution.width = 200;
-            imgResolution.height = 100;
+            const imgResolution = { width : 200, height : 100 };
             resolveCb(imgResolution);
         };
 
