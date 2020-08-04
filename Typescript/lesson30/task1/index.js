@@ -3,13 +3,15 @@ export const addImage = imgSrc => {
         const imgElem = document.createElement('img');
         imgElem.setAttribute('alt', 'My Photo');
         imgElem.src = imgSrc;
+        imgElem.width = 200;
+        imgElem.height = 100;
 
         const containerElem = document.querySelector('.page');
         containerElem.append(imgElem);
 
         const onImageLoaded = () => {
             const { width, height } = imgElem;
-            resolveCb({ width: 200, height: 100 });
+            resolveCb(imgElem);
         };
 
         imgElem.addEventListener('load', onImageLoaded);
