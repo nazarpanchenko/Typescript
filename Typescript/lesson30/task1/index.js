@@ -9,7 +9,7 @@ export const addImage = imgSrc => {
 
         const onImageLoaded = () => {
             const { width = 200, height = 100 } = imgElem;
-            resolveCb(imgElem);
+            resolveCb(imgElem.width, imgElem.height);
         };
 
         imgElem.addEventListener('load', onImageLoaded);
