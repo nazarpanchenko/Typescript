@@ -17,5 +17,5 @@ export const asyncCalculator = numbr => new Promise((resolve) => {
         return value;
     });
 
-asyncCalculator(4)
+asyncCalculator(5)
     .then(value => console.log(value));
