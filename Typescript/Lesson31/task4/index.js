@@ -1,16 +1,27 @@
-/*
- * failedPromise должен зареджектить ошибку new Error('Oops, error!');
- * Ответьте себе на вопрос, какой тип данных имеет переменная failedPromise
- */
-
-const failedPromise = new Promise((resolve, reject) => {
-    reject(new Error('Oops, error!'));
+const serverResponsePromise = new Promise(resolve => {
+    const serverResponse = {
+        ok: true,
+        json() {
+            return Promise.resolve({
+                name: 'John',
+                age: 20
+            });
+        }
+    }
+    resolve(serverResponse);
 });
 
 /*
- * выведите в консоль ошибку в ф-ции onError
+ * допишите первый обработчик, чтобы во второй попал объект пользователя
  */
 
-failedPromise.catch(function onError(error) {
-    console.log(error);
-});
+serverResponsePromise
+    .then(response => {
+        /* ...code here */
+        return response.json();
+    })
+    .then(result => {
+        console.log(result); // { name: 'John', age: 20 }
+    });
+
+console.log('!!! Обратите внимание, что этот текст вывелся самым первым. Ведь это синхронный код, а промисы - асинхронны !!!');
