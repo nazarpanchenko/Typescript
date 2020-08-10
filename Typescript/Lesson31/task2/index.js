@@ -16,6 +16,6 @@ const p = asyncCalculator(5)
     .then(value => {
         const result = value * 2;
         console.log(`Doubled value: ${result}`);
-        return value;
+        return result;
     })
     .then(value => console.log(value));
