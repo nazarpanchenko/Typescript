@@ -7,8 +7,11 @@ const promiseNumber3 = Promise.resolve(8);
  * чтобы в консоль вывелась сумма всех чисел из трех промисов
  */
 export const resultPromise = new Promise(resolve => {
+
     return Promise.all([promiseNumber1, promiseNumber2, promiseNumber3])
-        .then(result => console.log(result));
+        .then(promise => {
+            resolve(promise);
+        });
 });
 
 resultPromise
@@ -20,3 +23,5 @@ resultPromise
     .then(result => {
         console.log(result); // 98
     });
+
+    console.log(resultPromise);
