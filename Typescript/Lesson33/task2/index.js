@@ -6,14 +6,6 @@ export const getTasksList = () => {
 };
 
 export const getTaskById = taskId => {
-    return fetch(baseUrl)
+    return fetch(`${baseUrl}/${taskId}`)
         .then(response => response.json());
 };
-
-getTasksList().then(tasksList => {
-    console.log(tasksList);
-});
-
-getTaskById('2').then(taskData => {
-    console.log(taskData);
-});
