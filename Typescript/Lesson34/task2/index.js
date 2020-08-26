@@ -8,8 +8,7 @@ export const getUsersList = () => {
 export const getUserById = userId => {
     return fetch(`${baseUrl}/${userId}`, {
         method: 'GET'
-    })
-    .then(response => response.json());
+    });
 };
 
 export const createUser = user => {
