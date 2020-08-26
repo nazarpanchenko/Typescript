@@ -7,8 +7,12 @@ export const getUsersList = () => {
 
 export const getUserById = userId => {
     return fetch(`${baseUrl}/${userId}`, {
-        method: 'GET'
-    });
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json;charset=utf-8'
+        }
+    })
+    .then(response => response.json())
 };
 
 export const createUser = user => {
