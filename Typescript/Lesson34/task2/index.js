@@ -7,10 +7,7 @@ export const getUsersList = () => {
 
 export const getUserById = userId => {
     return fetch(`${baseUrl}/${userId}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type' : 'application/json;charset=utf-8'
-        }
+        method: 'GET'
     })
     .then(response => response.json())
 };
