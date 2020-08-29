@@ -1,26 +1,38 @@
+// document.querySelector('form').addEventListener('submit', () => {
+//     document.querySelector('form').reportValidity();
+// }, false);
+
 const baseUrl = 'https://5f4107e4a5e9db0016302376.mockapi.io/api/v1/allUsers';
 
 const formInput = document.querySelector('.form-input');
 const submitBtn = document.querySelector('.submit-button');
 const errorText = document.querySelector('.error-text');
+const emailElem = document.querySelector('#email');
+const nameElem = document.querySelector('#name');
+const passwordElem = document.querySelector('#password');
 
 const newUser = {
-    email : 'example111@gmail.com',
-    userName : 'John Doe',
-    password : '1234567890'
+    email : emailElem.textContent,
+    userName : nameElem.textContent,
+    password : passwordElem.textContent
+};
+const onEmailChange = event => {
+    emailElem.textContent = event.target.value;
+    newUser.email = emailElem.textContent;
+    errorText.textContent = '';
+};
+const onUserNameChange = event => {
+    nameElem.textContent = event.target.value;
+    newUser.userName = nameElem.textContent;
+    errorText.textContent = '';
+};
+const onPasswordChange = event => {
+    passwordElem.textContent = event.target.value;
+    newUser.password = passwordElem.textContent;
+    errorText.textContent = '';
 };
 
-// document.forms['.login-form'].addEventListener('.submit-button', () => {
-//     document.forms['.login-form'].reportValidity();
-// }, false);
-
-const onInputChange = event => {
-    if (!event.target.dataset.id) return;
-
-    event.target.value = '';
-};
-
-const onCreateUser = newUser => {
+const onCreateUser = () => {
     return fetch(baseUrl, {
         method: 'POST',
         headers: {
@@ -30,14 +42,14 @@ const onCreateUser = newUser => {
     })
     .then(response => {
         if (!response.ok) {
-            errorText.innerHTML = 'Failed to create user';
-        } 
-        else {
-            alert(response.json());
-            formInput.innerHTML = '';
+            errorText.textContent = 'Failed to create user';
         }
-    });
+        formInput.textContent = '';
+    })
+    .then(data => alert(data))
 };
 
 submitBtn.addEventListener('click', onCreateUser);
-formInput.addEventListener('change', onInputChange);
+emailElem.addEventListener('change', onEmailChange);
+nameElem.addEventListener('change', onUserNameChange);
+passwordElem.addEventListener('change', onPasswordChange);
