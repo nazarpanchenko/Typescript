@@ -1,6 +1,6 @@
-// document.querySelector('form').addEventListener('submit', () => {
-//     document.querySelector('form').reportValidity();
-// }, false);
+document.querySelector('form').addEventListener('submit', () => {
+    document.querySelector('form').reportValidity();
+}, false);
 
 const baseUrl = 'https://5f4107e4a5e9db0016302376.mockapi.io/api/v1/allUsers';
 
