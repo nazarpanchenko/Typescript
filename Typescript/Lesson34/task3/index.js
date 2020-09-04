@@ -1,12 +1,7 @@
-const form = document.querySelector('form');
-
-form.addEventListener('submit', () => {
-    form.reportValidity();
-}, false);
-
 const baseUrl = 'https://5f4107e4a5e9db0016302376.mockapi.io/api/v1/allUsers';
 
-const formInput = document.querySelectorAll('.form-input');
+const form = document.querySelector('form');
+const formInput = document.querySelector('.form-input');
 const submitBtn = document.querySelector('.submit-button');
 const errorText = document.querySelector('.error-text');
 const emailElem = document.querySelector('#email');
@@ -21,7 +16,7 @@ const user = {
 
 const onCreateUser = () => {
     user.email = emailElem.value;
-    uer.userName = userNameElem.value;
+    user.userName = userNameElem.value;
     user.password = passwordElem.value;
 
     return fetch(baseUrl, {
@@ -42,4 +37,15 @@ const onCreateUser = () => {
     })
 };
 
+const onFormInputChange = () => {
+    let isFormInputValid = form.reportValidity();
+
+    if (isFormInputValid) {
+        submitBtn.removeAttribute('disabled');
+    } else {
+        submitBtn.setAttribute('disabled', 'disabled');
+    }
+};
+
 submitBtn.addEventListener('click', onCreateUser);
+formInput.addEventListener('change', onFormInputChange);
