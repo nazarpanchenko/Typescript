@@ -30,7 +30,7 @@ const onCreateUser = () => {
         if (!response.ok) {
             errorText.textContent = 'Failed to create user';
         } else {
-            return response.json();
+            response.json();
         }
     })
     .then((data) => {
