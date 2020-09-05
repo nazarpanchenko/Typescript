@@ -29,23 +29,30 @@ const onCreateUser = () => {
     .then(response => {
         if (!response.ok) {
             errorText.textContent = 'Failed to create user';
+        } else {
+            return response.json();
         }
     })
     .then((data) => {
         alert(data);
-        formInput.textContent = '';
+        emailElem.textContent = '';
+        userNameElem.textContent = '';
+        passwordElem.textContent = '';
     })
 };
 
 const onFormInputChange = () => {
     let isFormInputValid = form.reportValidity();
+    errorText.textContent = '';
 
     if (isFormInputValid) {
-        submitBtn.removeAttribute('disabled');
+        submitBtn.disabled = false;
     } else {
-        submitBtn.setAttribute('disabled', 'disabled');
+        submitBtn.disabled = true;
     }
 };
 
-submitBtn.addEventListener('click', onCreateUser);
-formInput.addEventListener('change', onFormInputChange);
+submitBtn.addEventListener('submit', onCreateUser);
+emailElem.addEventListener('change', onFormInputChange);
+userNameElem.addEventListener('change', onFormInputChange);
+passwordElem.addEventListener('change', onFormInputChange);
