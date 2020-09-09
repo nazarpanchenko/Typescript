@@ -19,9 +19,9 @@ const onFormInputChange = () => {
     errorText.textContent = '';
 
     if (isFormInputValid) {
-        submitBtn.disabled = false;
+        submitBtn.removeAttribute('disabled');
     } else {
-        submitBtn.disabled = true;
+        submitBtn.setAttribute('disabled', 'disabled');
     }
 };
 
@@ -41,7 +41,7 @@ const onCreateUser = () => {
         if (!response.ok) {
             errorText.textContent = 'Failed to create user';
         } else {
-            return response.json();
+            response.json();
         }
     })
     .then((data) => {
@@ -50,9 +50,10 @@ const onCreateUser = () => {
         userNameElem.textContent = '';
         passwordElem.textContent = '';
     })
+    .catch((error) => alert(error.message))
 };
 
-submitBtn.addEventListener('submit', onCreateUser);
+submitBtn.addEventListener('click', onCreateUser);
 emailElem.addEventListener('change', onFormInputChange);
 userNameElem.addEventListener('change', onFormInputChange);
 passwordElem.addEventListener('change', onFormInputChange);
