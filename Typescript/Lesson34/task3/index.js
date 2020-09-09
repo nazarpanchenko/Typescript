@@ -40,14 +40,15 @@ const onCreateUser = () => {
     .then(response => {
         if (!response.ok) {
             errorText.textContent = 'Failed to create user';
+        } else {
+            return response.json();
         }
-        return response.json();
     })
     .then((data) => {
         alert(JSON.stringify(data));
-        emailElem.textContent = '';
-        userNameElem.textContent = '';
-        passwordElem.textContent = '';
+        emailElem.value = '';
+        userNameElem.value = '';
+        passwordElem.value = '';
     })
     .catch((error) => alert(error.message))
 };
