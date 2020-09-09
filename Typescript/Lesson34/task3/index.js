@@ -40,9 +40,9 @@ const onCreateUser = () => {
     .then(response => {
         if (!response.ok) {
             errorText.textContent = 'Failed to create user';
-        } else {
-            response.json();
         }
+        
+        return response.json();
     })
     .then((data) => {
         alert(data);
@@ -53,7 +53,7 @@ const onCreateUser = () => {
     .catch((error) => alert(error.message))
 };
 
-submitBtn.addEventListener('click', onCreateUser);
+form.addEventListener('submit', onCreateUser);
 emailElem.addEventListener('change', onFormInputChange);
 userNameElem.addEventListener('change', onFormInputChange);
 passwordElem.addEventListener('change', onFormInputChange);
