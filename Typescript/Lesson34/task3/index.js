@@ -50,7 +50,6 @@ const onCreateUser = () => {
         userNameElem.value = '';
         passwordElem.value = '';
     })
-    .catch((error) => alert(error.message))
 };
 
 form.addEventListener('submit', onCreateUser);
