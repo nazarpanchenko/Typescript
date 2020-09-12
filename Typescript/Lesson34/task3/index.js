@@ -15,7 +15,6 @@ const onFormInputChange = () => {
     } else {
         submitBtn.setAttribute('disabled', 'disabled');
     }
-
     errorElem.textContent = '';
 };
 
@@ -45,14 +44,15 @@ const onFormSubmit = () => {
         userName : userNameElem.value,
         password : passwordElem.value
     };
-    createUser(user)
-        .then(response => response.json())
-        .then((responseData) => {
-            clearForm();
-            onFormInputChange();
-            alert(JSON.stringify(responseData));
-        })
-        .catch(() => onError());
+    if (isFormInputValid) {
+        createUser(user)
+            .then(response => response.json())
+            .then((responseData) => {
+                clearForm();
+                alert(JSON.stringify(responseData));
+            })
+            .catch(() => onError());
+    }
 };
 
 form.addEventListener('submit', onFormSubmit);
