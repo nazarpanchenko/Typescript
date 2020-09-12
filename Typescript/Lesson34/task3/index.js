@@ -44,15 +44,13 @@ const onFormSubmit = () => {
         userName : userNameElem.value,
         password : passwordElem.value
     };
-    if (isFormInputValid) {
-        createUser(user)
-            .then(response => response.json())
-            .then((responseData) => {
-                clearForm();
-                alert(JSON.stringify(responseData));
-            })
-            .catch(() => onError());
-    }
+    createUser(user)
+        .then(response => response.json())
+        .then((responseData) => {
+            clearForm();
+            alert(JSON.stringify(responseData));
+        })
+        .catch(() => onError());
 };
 
 form.addEventListener('submit', onFormSubmit);
