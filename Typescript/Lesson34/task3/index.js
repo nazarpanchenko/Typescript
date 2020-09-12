@@ -15,14 +15,13 @@ const onFormInputChange = () => {
     } else {
         submitBtn.setAttribute('disabled', 'disabled');
     }
-
-    errorElem.textContent = '';
 };
 
 const clearForm = () => {
     emailElem.value = '';
     userNameElem.value = '';
     passwordElem.value = '';
+    errorElem.textContent = '';
 };
 
 const onError = () => {
