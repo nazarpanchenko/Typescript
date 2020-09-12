@@ -3,57 +3,58 @@ let isFormInputValid;
 
 const form = document.querySelector('form');
 const submitBtn = document.querySelector('.submit-button');
-const errorText = document.querySelector('.error-text');
+const errorElem = document.querySelector('.error-text');
 const emailElem = document.querySelector('#email');
 const userNameElem = document.querySelector('#name');
 const passwordElem = document.querySelector('#password');
 
-const user = {
-    email : '',
-    userName : '',
-    password : ''
-};
-
 const onFormInputChange = () => {
     isFormInputValid = form.reportValidity();
-    errorText.textContent = '';
-
     if (isFormInputValid) {
         submitBtn.removeAttribute('disabled');
     } else {
         submitBtn.setAttribute('disabled', 'disabled');
     }
+
+    errorElem.textContent = '';
 };
 
-const onCreateUser = () => {
-    user.email = emailElem.value;
-    user.userName = userNameElem.value;
-    user.password = passwordElem.value;
+const clearForm = () => {
+    emailElem.value = '';
+    userNameElem.value = '';
+    passwordElem.value = '';
+};
 
+const onError = () => {
+    errorElem.textContent = 'Failed to create user';
+};
+
+const createUser = userData => {
     return fetch(baseUrl, {
         method: 'POST',
         headers: {
             'Content-Type' : 'application/json;charset=utf-8'
         },
-        body: JSON.stringify(user)
-    })
-    .then(response => {
-        if (!response.ok) {
-            errorText.textContent = 'Failed to create user';
-        } else {
-            return response.json();
-        }
-    })
-    .then((data) => {
-        alert(JSON.stringify(data));
-        emailElem.value = '';
-        userNameElem.value = '';
-        passwordElem.value = '';
+        body: JSON.stringify(userData)
     })
 };
 
-form.addEventListener('submit', onCreateUser);
+const onFormSubmit = () => {
+    const user = {
+        email : userNameElem.value,
+        userName : userNameElem.value,
+        password : passwordElem.value
+    };
+    createUser(user)
+        .then(response => response.json())
+        .then((responseData) => {
+            clearForm();
+            alert(JSON.stringify(responseData));
+        })
+        .catch(() => onError());
+};
+
+form.addEventListener('submit', onFormSubmit);
 emailElem.addEventListener('change', onFormInputChange);
 userNameElem.addEventListener('change', onFormInputChange);
 passwordElem.addEventListener('change', onFormInputChange);
-
