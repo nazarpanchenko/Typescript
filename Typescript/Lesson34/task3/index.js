@@ -15,13 +15,14 @@ const onFormInputChange = () => {
     } else {
         submitBtn.setAttribute('disabled', 'disabled');
     }
+
+    errorElem.textContent = '';
 };
 
 const clearForm = () => {
     emailElem.value = '';
     userNameElem.value = '';
     passwordElem.value = '';
-    errorElem.textContent = '';
 };
 
 const onError = () => {
@@ -48,6 +49,7 @@ const onFormSubmit = () => {
         .then(response => response.json())
         .then((responseData) => {
             clearForm();
+            onFormInputChange();
             alert(JSON.stringify(responseData));
         })
         .catch(() => onError());
