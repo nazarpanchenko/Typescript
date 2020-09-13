@@ -1,21 +1,17 @@
-const baseUrl = 'https://5f4107e4a5e9db0016302376.mockapi.io/api/v1/allUsers';
-let isFormInputValid;
-
 const form = document.querySelector('form');
-const submitBtn = document.querySelector('.submit-button');
-const errorElem = document.querySelector('.error-text');
 const emailElem = document.querySelector('#email');
 const userNameElem = document.querySelector('#name');
 const passwordElem = document.querySelector('#password');
 
-const onFormInputChange = () => {
-    isFormInputValid = form.reportValidity();
-    if (isFormInputValid) {
-        submitBtn.removeAttribute('disabled');
-    } else {
-        submitBtn.setAttribute('disabled', 'disabled');
-    }
-    errorElem.textContent = '';
+const createUser = userData => {
+    const baseUrl = 'https://5f4107e4a5e9db0016302376.mockapi.io/api/v1/allUsers';
+    return fetch(baseUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(userData)
+    })
 };
 
 const clearForm = () => {
@@ -25,17 +21,21 @@ const clearForm = () => {
 };
 
 const onError = () => {
+    let errorElem = document.querySelector('.error-text');
     errorElem.textContent = 'Failed to create user';
 };
 
-const createUser = userData => {
-    return fetch(baseUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type' : 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(userData)
-    })
+const onFormInputChange = () => {
+    const submitBtn = document.querySelector('.submit-button');
+    let isFormInputValid = form.reportValidity();
+    let errorElem = document.querySelector('.error-text');
+
+    if (isFormInputValid) {
+        submitBtn.removeAttribute('disabled');
+    } else {
+        submitBtn.setAttribute('disabled', 'disabled');
+    }
+    errorElem.textContent = '';
 };
 
 const onFormSubmit = () => {
@@ -54,6 +54,6 @@ const onFormSubmit = () => {
 };
 
 form.addEventListener('submit', onFormSubmit);
-emailElem.addEventListener('change', onFormInputChange);
-userNameElem.addEventListener('change', onFormInputChange);
-passwordElem.addEventListener('change', onFormInputChange);
+emailElem.addEventListener('input', onFormInputChange);
+userNameElem.addEventListener('input', onFormInputChange);
+passwordElem.addEventListener('input', onFormInputChange);
