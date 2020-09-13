@@ -40,7 +40,7 @@ const onFormInputChange = () => {
 
 const onFormSubmit = () => {
     const user = {
-        email : userNameElem.value,
+        email : emailElem.value,
         userName : userNameElem.value,
         password : passwordElem.value
     };
