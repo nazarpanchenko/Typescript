@@ -39,11 +39,15 @@ const onFormInputChange = () => {
 };
 
 const onFormSubmit = () => {
+    let emailElem = document.querySelector('#email');
+    let userNameElem = document.querySelector('#name');
+    let passwordElem = document.querySelector('#password');
     const user = {
         email : emailElem.value,
         userName : userNameElem.value,
         password : passwordElem.value
     };
+
     createUser(user)
         .then(response => response.json())
         .then((responseData) => {
