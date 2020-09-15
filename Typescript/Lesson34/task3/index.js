@@ -46,7 +46,7 @@ const onFormSubmit = () => {
 
     let userFormData = new FormData(form);
     userFormData.set('email', emailElem.value);
-    userFormData.set('userName', emailElem.value);
+    userFormData.set('userName', userNameElem.value);
     userFormData.set('password', passwordElem.value);
 
     createUser(userFormData)
