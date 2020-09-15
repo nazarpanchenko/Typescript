@@ -2,7 +2,7 @@ const form = document.querySelector('form');
 const emailElem = document.querySelector('#email');
 const userNameElem = document.querySelector('#name');
 const passwordElem = document.querySelector('#password');
-let errorElem = document.querySelector('.error-text');
+const errorElem = document.querySelector('.error-text');
 
 const createUser = userData => {
     const baseUrl = 'https://5f4107e4a5e9db0016302376.mockapi.io/api/v1/allUsers';
@@ -28,7 +28,7 @@ const onError = () => {
 const onFormInputChange = () => {
     const submitBtn = document.querySelector('.submit-button');
     let isFormInputValid = form.reportValidity();
-    
+
     if (isFormInputValid) {
         submitBtn.removeAttribute('disabled');
     } else {
@@ -38,12 +38,18 @@ const onFormInputChange = () => {
 };
 
 const onFormSubmit = () => {
-    const user = {
-        email : emailElem.value,
-        userName : userNameElem.value,
-        password : passwordElem.value
-    };
-    createUser(user)
+    // const user = {
+    //     email : emailElem.value,
+    //     userName : emailElem.value,
+    //     password : passwordElem.value
+    // };
+
+    let userFormData = new FormData(form);
+    formData.append('email', emailElem.value);
+    formData.append('userName', emailElem.value);
+    formData.append('password', passwordElem.value);
+
+    createUser(userFormData)
         .then(response => response.json())
         .then((responseData) => {
             clearForm();
