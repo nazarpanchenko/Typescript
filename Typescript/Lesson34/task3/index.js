@@ -44,10 +44,7 @@ const onFormSubmit = () => {
     //     password : passwordElem.value
     // };
 
-    let userFormData = new FormData(form);
-    userFormData.set('email', emailElem.value);
-    userFormData.set('userName', userNameElem.value);
-    userFormData.set('password', passwordElem.value);
+    const userFormData = Object.fromEntries(new FormData(form));
 
     createUser(userFormData)
         .then(response => response.json())
