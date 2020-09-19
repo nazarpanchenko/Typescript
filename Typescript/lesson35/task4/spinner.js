@@ -7,5 +7,4 @@ export const hideSpinner = () => {
 
 export const showSpinner = () => {
     spinerElem.classList.add('.spinner_hidden');
-    
 };
