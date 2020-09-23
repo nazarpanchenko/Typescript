@@ -11,6 +11,6 @@ export const fetchUser = async userId => {
     }
 };
 
-fetchUser('facebook')
+fetchUser('github')
     .then(userData => console.log(userData))
     .catch(err => alert(err.message));
