@@ -1,24 +1,21 @@
-const successRequest = Promise.resolve({ name: "Tom" });
+const fetchUserBlogId = async userBlogId => {
+    return await fetch(`https://api.github.com/users/${userBlogId}`)
+        .then(res => res.json());
+};
 
-successRequest
-    .then(function onSuccess1(data) {
-        throw new Error('Error with data');
-    })
-    .catch(function onError1(error) {
-        console.error("onError1", error.message);
-    })
+export const getUsersBlogs = usersBlogs => {
+    let blogUsers = [];
 
-
-const failRequest = Promise.reject(new Error("Something went wrong"));
-
-failRequest
-    .catch(function onError2(error) {
-        console.error("onError2", error.message);
-        throw new Error('Server error');
-    })
-    .then(function onSuccess2(data) {
-        console.log("onSuccess2", data);
-    })
-    .catch(function onError3(error) {
-        console.error("onError3", error.message);
+    usersBlogs.forEach(userBlogId => {
+        try {
+            blogUsers.push(fetchUserBlogId(userBlogId));
+        } catch(err) {
+            return;
+        }
     });
+
+    return Promise.all(blogUsers);
+};
+
+getUsersBlogs(['google', 'facebook', 'gaearon'])
+    .then(linksList => console.log(linksList));
