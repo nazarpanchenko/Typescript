@@ -1,20 +1,27 @@
-const fetchUserBlogId = async userBlogId => {
-    return await fetch(`https://api.github.com/users/${userBlogId}`)
-        .then(res => res.json());
+const fetchUserBlog = userBlogId => {
+    return fetch(`https://api.github.com/users/${userBlogId}`)
+        .then(response => response.json());
 };
 
-export const getUsersBlogs = usersBlogs => {
-    let blogUsers = [];
+export const getUsersBlogs = async usersBlogs => {
+    let promises = [];
 
     usersBlogs.forEach(userBlogId => {
-        try {
-            blogUsers.push(fetchUserBlogId(userBlogId));
-        } catch(err) {
-            return;
-        }
+        let promise = new Promise((resolve, reject) => {
+            try {
+                resolve(
+                    fetchUserBlog(userBlogId)
+                        .then(userBlogData => userBlogData.blog)
+                );
+            } catch(err) {
+                reject();
+            }
+        });
+
+        promises.push(promise);
     });
 
-    return Promise.all(blogUsers);
+    return await Promise.all(promises);
 };
 
 getUsersBlogs(['google', 'facebook', 'gaearon'])
