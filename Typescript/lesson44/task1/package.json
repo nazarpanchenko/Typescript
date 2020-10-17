@@ -3,13 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "copy:html": "cp ./src/index.html ./dist/index.html",
-    "build:scripts": "webpack -p",
-    "clean": "rm -rf ./dist",
-    "build": "npm-run-all clean build:* copy:*",
-    "watch": "webpack -d --devtools eval-source-maps -w"
+    "build": "webpack -p",
+    "start": "webpack-dev-server -d --devtools eval-source-maps --open"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +14,7 @@
     "@babel/core": "^7.12.0",
     "@babel/preset-env": "^7.11.5",
     "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.0",
     "file-loader": "^6.1.1",
     "html-webpack-plugin": "^4.5.0",
