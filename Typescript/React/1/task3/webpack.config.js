@@ -14,8 +14,6 @@ module.exports = {
         ]
     },
     plugins :[
-        new webpack.ProgressPlugin(),
-        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html'
         })
