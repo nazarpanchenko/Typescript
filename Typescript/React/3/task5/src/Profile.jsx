@@ -7,12 +7,12 @@ const formatDate = date => moment(date).format("DD MMM YY");
 function Profile(props) {
     return (
         <div className="profile">
-            <div className="profile__name">
-                {props.firstName} {props.lastName}
-            </div>
-            <div className="profile__birth">
+            <span className="profile__name">
+                {props.firstName} {props.lastName} 
+            </span>
+            <span className="profile__birth">
                 Was born {formatDate(props.birthDate)} in {props.birthPlace}
-            </div>
+            </span>
         </div>
     );
 };
