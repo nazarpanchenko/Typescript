@@ -17,12 +17,12 @@ class Clock extends Component {
 
         this.state = {
             location : props.location,
-            offset : moment(getTimeWithOffset(props.offset)).format('h:mm:ss A')
+            offset : getTimeWithOffset(props.offset).toLocaleString()
         };
 
         setInterval(() => {
             this.setState({
-                offset : moment(getTimeWithOffset(props.offset)).format('h:mm:ss A')
+                offset : getTimeWithOffset(props.offset).toLocaleString()
             });
         }, 1000);
     }
