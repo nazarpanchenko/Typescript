@@ -3,7 +3,7 @@ import './clock.scss';
 import moment from "moment";
 import momentTimezone from "moment-timezone";
 
-let location, offset, currentTime;
+let location, offset, initialTimeOffset;
 
 const getTimeWithOffset = offset => {
     const currentTime = new Date();
@@ -17,14 +17,17 @@ class Clock extends Component {
 
         this.state = {
             location : props.location,
-            offset : props.offset
+            offset : moment(getTimeWithOffset(props.offset)).format('h:mm:ss A'),
+            initialTimeOffset : props.offset
         };
 
+        console.log(this.state);
+
         setInterval(() => {
-            const getUpdatedTime = moment(getTimeWithOffset(this.state.offset)).format('h:mm:ss A');
+            const getUpdatedTime = moment(getTimeWithOffset(this.state.initialTimeOffset)).format('h:mm:ss A');
 
             this.setState({
-                currentTime : getUpdatedTime
+                offset : getUpdatedTime
             });
         }, 1000);
     }
@@ -36,7 +39,7 @@ class Clock extends Component {
                     {this.state.location}
                 </div>
                 <div className="clock__time">
-                    {this.state.currentTime}
+                    {this.state.offset}
                 </div>
             </div>
         );
