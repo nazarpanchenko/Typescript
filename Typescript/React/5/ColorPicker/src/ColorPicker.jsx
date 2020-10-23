@@ -19,37 +19,34 @@ class ColorPicker extends Component {
         let updatedColor = (e.target.style.backgroundColor = color);
 
         this.setState({
-            pickerColor : updatedColor
+            pickerColor : this.updatedColor
         });
     }
 
-    resetHover() {
+    resetPickerColor() {
         this.setState({
             pickerColor : ''
         });
     }
 
     render() {
-        return(
+        return (
             <div>
                 <div className="picker__title">
                     {this.state.pickerColor}
                 </div>
-                <div>
+                <div onMouseLeave={() => this.resetPickerColor()}>
                     <button 
-                        className="picker__button picker__button_coral" 
                         onMouseOver={this.setPickerColor.bind(this, CORAL)}
-                        onMouseLeave={() => this.resetHover()}
+                        className="picker__button picker__button_coral" 
                     ></button>
                     <button 
-                        className="picker__button picker__button_aqua" 
                         onMouseOver={this.setPickerColor.bind(this, AQUA)}
-                        onMouseLeave={() => this.resetHover()}
+                        className="picker__button picker__button_aqua" 
                     ></button>
                     <button 
-                        className="picker__button picker__button_bisque" 
                         onMouseOver={this.setPickerColor.bind(this, BISQUE)}
-                        onMouseLeave={() => this.resetHover()}
+                        className="picker__button picker__button_bisque" 
                     ></button>
                 </div>
             </div>
