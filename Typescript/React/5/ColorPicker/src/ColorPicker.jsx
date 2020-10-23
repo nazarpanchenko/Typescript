@@ -15,11 +15,9 @@ class ColorPicker extends Component {
         };
     }
 
-    setPickerColor = (color, e) => {
-        let updatedColor = (e.target.style.backgroundColor = color);
-
+    setPickerColor = color => {
         this.setState({
-            pickerColor : this.updatedColor
+            pickerColor : color
         });
     }
 
@@ -37,15 +35,15 @@ class ColorPicker extends Component {
                 </div>
                 <div onMouseLeave={() => this.resetPickerColor()}>
                     <button 
-                        onMouseOver={this.setPickerColor.bind(this, CORAL)}
+                        onMouseOver={() =>this.setPickerColor(CORAL)}
                         className="picker__button picker__button_coral" 
                     ></button>
                     <button 
-                        onMouseOver={this.setPickerColor.bind(this, AQUA)}
+                        onMouseOver={() => this.setPickerColor(AQUA)}
                         className="picker__button picker__button_aqua" 
                     ></button>
                     <button 
-                        onMouseOver={this.setPickerColor.bind(this, BISQUE)}
+                        onMouseOver={() => this.setPickerColor(BISQUE)}
                         className="picker__button picker__button_bisque" 
                     ></button>
                 </div>
