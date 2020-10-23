@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './clock.scss';
 import moment from "moment";
-import momentTimezone from "moment-timezone";
+import 'moment-timezone';
 
 let location, offset;
 
