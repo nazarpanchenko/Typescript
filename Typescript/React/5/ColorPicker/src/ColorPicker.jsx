@@ -11,7 +11,7 @@ class ColorPicker extends Component {
         super(props);
 
         this.state = {
-            pickerColor : BISQUE
+            pickerColor : ''
         };
     }
 
@@ -23,6 +23,12 @@ class ColorPicker extends Component {
         });
     }
 
+    resetHover() {
+        this.setState({
+            pickerColor : ''
+        });
+    }
+
     render() {
         return(
             <div>
@@ -30,9 +36,21 @@ class ColorPicker extends Component {
                     {this.state.pickerColor}
                 </div>
                 <div>
-                    <button className="picker__button picker__button_coral" onMouseOver={this.setPickerColor.bind(this, CORAL)}></button>
-                    <button className="picker__button picker__button_aqua" onMouseOver={this.setPickerColor.bind(this, AQUA)}> </button>
-                    <button className="picker__button picker__button_bisque" onMouseOver={this.setPickerColor.bind(this, BISQUE)}></button>
+                    <button 
+                        className="picker__button picker__button_coral" 
+                        onMouseOver={this.setPickerColor.bind(this, CORAL)}
+                        onMouseLeave={() => this.resetHover()}
+                    ></button>
+                    <button 
+                        className="picker__button picker__button_aqua" 
+                        onMouseOver={this.setPickerColor.bind(this, AQUA)}
+                        onMouseLeave={() => this.resetHover()}
+                    ></button>
+                    <button 
+                        className="picker__button picker__button_bisque" 
+                        onMouseOver={this.setPickerColor.bind(this, BISQUE)}
+                        onMouseLeave={() => this.resetHover()}
+                    ></button>
                 </div>
             </div>
         );
