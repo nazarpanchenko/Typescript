@@ -12,13 +12,13 @@ class Auth extends Component {
         };
     }
 
-    handleLogin =() => {
+    handleLogin = () => {
         this.setState({
             isLoggedIn : true
         });
     }
 
-    handleLogout =() => {
+    handleLogout = () => {
         this.setState({
             isLoggedIn : false
         });
@@ -42,8 +42,12 @@ class Auth extends Component {
         return (
             <div className="panel">
                 <Greeting isLoggedIn={this.state.isLoggedIn} />
-                <Login onLogin={this.handleLogout} />
-                <Logout onLogout={this.handleLogin} />
+
+                {this.state.isLoggedIn ? (
+                    <Login onLogin={this.handleLogout} />
+                ) : (
+                    <Logout onLogout={this.handleLogin} />
+                )}
             </div>
         );
     }
