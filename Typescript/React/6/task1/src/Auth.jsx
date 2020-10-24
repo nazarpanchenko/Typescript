@@ -30,9 +30,9 @@ class Auth extends Component {
                 <Greeting isLoggedIn={this.state.isLoggedIn} />
 
                 {this.state.isLoggedIn ? (
-                    <Login onLogin={this.handleLogout} />
+                    <Logout onLogout={this.handleLogout} />
                 ) : (
-                    <Logout onLogout={this.handleLogin} />
+                    <Login onLogin={this.handleLogin} />
                 )}
             </div>
         );
