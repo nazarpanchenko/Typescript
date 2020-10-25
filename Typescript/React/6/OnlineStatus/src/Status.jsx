@@ -4,20 +4,26 @@ import Offline from './Offline';
 
 class Status extends Component {
     state = {
-        userActive : false
+        isOnline : false
     };
+
+    signIn = () => {
+        this.setState({
+            isOnline : false
+        });
+    }
 
     signOff = () => {
         this.setState({
-            userActive : true
+            isOnline : true
         });
     }
         
     render() {
         return (
             <>
-                {this.state.userActive ? (
-                    <Online isOnline={this.state.userActive} />
+                {this.state.isOnline ? (
+                    <Online isOnline={this.signIn} />
                 ) : (
                     <Offline isOnline={this.signOff} />
                 )}

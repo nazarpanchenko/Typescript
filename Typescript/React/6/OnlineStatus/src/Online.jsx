@@ -4,6 +4,7 @@ const Online = props => {
     return (
         <div className="status">
             <span className="status__text">All good!</span>
+            <button className="status__btn" onClick={props.isOnline}>Disconnect</button>
         </div>
     );
 }
