@@ -15,13 +15,13 @@ class Status extends Component {
         
     render() {
         return (
-            <>
-                {this.state.isOnline ? (
+           <div className="status">
+               {this.state.isOnline ? (
                     <Online />
                 ) : (
                     <Offline status={this.changeOnlineStatus} />
                 )}
-            </>
+           </div>
         );
     }
 }
