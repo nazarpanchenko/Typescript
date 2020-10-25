@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Message from './Message';
 
 const text1 = 'Hello, world!',
     text2 = 'Another exciting text.';
