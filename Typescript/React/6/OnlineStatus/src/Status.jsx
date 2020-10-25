@@ -17,9 +17,9 @@ class Status extends Component {
         return (
             <>
                 {this.state.isOnline ? (
-                    <Online userActive={this.changeOnlineStatus} />
+                    <Online status={this.changeOnlineStatus} />
                 ) : (
-                    <Offline userInactive={this.changeOnlineStatus} />
+                    <Offline status={this.changeOnlineStatus} />
                 )}
             </>
         );
