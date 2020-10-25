@@ -4,22 +4,22 @@ import Offline from './Offline';
 
 class Status extends Component {
     state = {
-        isOnline : false
+        userActive : false
     };
 
-    signIn = () => {
+    userSignIn = () => {
         this.setState({
-            isOnline : true
+            userActive : !this.userActive
         });
     }
         
     render() {
         return (
             <>
-                {this.state.isOnline ? (
-                    <Online active={this.state.isOnline} />
+                {this.state.userActive ? (
+                    <Online isOnline={this.state.userActive} />
                 ) : (
-                    <Offline inactive={this.signIn} />
+                    <Offline isOnline={this.userSignIn} />
                 )}
             </>
         );
