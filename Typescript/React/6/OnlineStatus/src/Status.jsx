@@ -16,8 +16,8 @@ class Status extends Component {
     render() {
         return (
             <>
-                {this.state.isOnline ? (
-                    <Online />
+                {this.state.isOnline === true ? (
+                    <Online status={this.changeOnlineStatus} />
                 ) : (
                     <Offline status={this.changeOnlineStatus} />
                 )}
