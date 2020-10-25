@@ -9,7 +9,7 @@ class Status extends Component {
 
     changeOnlineStatus = () => {
         this.setState({
-            isOnline : !this.state.isOnline
+            isOnline : true
         });
     }
         
@@ -17,7 +17,7 @@ class Status extends Component {
         return (
             <>
                 {this.state.isOnline ? (
-                    <Online status={this.changeOnlineStatus} />
+                    <Online />
                 ) : (
                     <Offline status={this.changeOnlineStatus} />
                 )}
