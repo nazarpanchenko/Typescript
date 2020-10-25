@@ -4,7 +4,7 @@ const Offline = props => {
     return (
         <>
             <span className="status__text">Offline</span>
-            <button className="status__btn" onClick={props.status}>Reconnect</button>
+            <button className="status__btn">Reconnect</button>
         </>
     );
 }
