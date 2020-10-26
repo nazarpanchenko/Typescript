@@ -28,7 +28,6 @@ class UsersList extends React.Component {
         } else {
             usersList = this.props.users;
         }
-       
         return (
             <div>
                 <button className="btn" onClick={this.toggleSorting}>{
