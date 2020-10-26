@@ -1,12 +1,7 @@
 import React from 'react';
 
-const Online = props => {
-    return (
-        <>
-            <span className="status__text">All good!</span>
-            <button className="status__btn" onClick={props.goOffline}>Logout</button>
-        </>
-    );
+const Online = () => {
+    return <span className="status__text">All good!</span>
 }
 
 export default Online;

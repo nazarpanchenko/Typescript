@@ -3,16 +3,10 @@ import Login from './Login';
 import Logout from './Logout';
 import Spinner from './Spinner';
 
-let spinner;
-
 class Auth extends Component {
     state = {
         isOnline : false
     };
-
-    hideSpinner = () => {
-        spinner = null;
-    }
 
     logIn = () => {
         this.setState({

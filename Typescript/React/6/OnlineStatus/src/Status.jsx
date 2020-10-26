@@ -2,24 +2,16 @@ import React, { Component } from 'react';
 import Online from './Online';
 import Offline from './Offline';
 
-class Status extends Component {
-    state = {
-        isOnline : false
-    };
+let isOnline = false;
 
-    changeOnlineStatus = () => {
-        this.setState({
-            isOnline : !this.state.isOnline
-        });
-    }
-        
+class Status extends Component {  
     render() {
         return (
            <div className="status">
-               {this.state.isOnline ? (
-                    <Online goOffline={this.changeOnlineStatus} />
+               {isOnline ? (
+                    <Online />
                 ) : (
-                    <Offline goOnline={this.changeOnlineStatus} />
+                    <Offline />
                 )}
            </div>
         );
