@@ -16,7 +16,7 @@ class Demo extends Component {
             visible : false
         });
     };
-    show = () => {
+    update = () => {
         this.setState({
             number : Math.round(Math.random() * 100)
         });
@@ -24,20 +24,20 @@ class Demo extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <button className="btn" onClick={this.show}>
-                        Show
-                    </button>
-                    <button className="btn" onClick={this.hide}>
-                        Hide
-                    </button>
-                    <button className="btn" onClick={this.update}>
-                        Update
-                    </button>
-                </div>
+            <div className="container">
+                <button className="btn" onClick={this.show}>
+                    Show
+                </button>
+                <button className="btn" onClick={this.hide}>
+                    Hide
+                </button>
+                <button className="btn" onClick={this.update}>
+                    Update
+                </button>
                 {this.state.visible && <Life number={this.state.number} />}
             </div>
         );
     }
 }
+
+export default Demo;

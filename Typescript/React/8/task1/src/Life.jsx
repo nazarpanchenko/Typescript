@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Life extends Comment {
+class Life extends Component {
     constructor(props) {
         super(props);
         console.log('constructor: good place to create state');
@@ -27,7 +27,7 @@ class Life extends Comment {
     render() {
         console.log('return React element to build DOM');
 
-        return <div>{this.props.number}</div>;
+        return <div className="number">{this.props.number}</div>;
     }
 }
 
