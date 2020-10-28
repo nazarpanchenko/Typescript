@@ -8,7 +8,6 @@ class ConnectionStatus extends React.Component {
     componentDidMount() {
         window.addEventListener('online', this.showConnectionStatus);
         window.addEventListener('offline', this.showConnectionStatus);
-        this.changeStyles();
     }
 
     componentWillUnmount() {
@@ -20,20 +19,20 @@ class ConnectionStatus extends React.Component {
         this.setState({
             connected : navigator.onLine ? 'Online' : 'Offline'
         });
+
         return this.state.connected;
     }
 
-    changeStyles = () => {
-        const status = document.querySelector('.status');
-        if (this.state.connected) {
-            status.classList.remove('status_offline');
-        } else {
-            status.classList.add('status_offline');
-        }
-    }
-
     render() {
-        return <div className="status">{this.state.connected}</div>
+        return (
+            <div className={
+                `status ${this.state.connected === 'Offline' ? 
+                    "status_offline" : this.state.connected === 'Online' ? "Online" 
+                    : ""
+                }`}>
+                {this.state.connected}
+            </div>
+        );
     }
 }
 
