@@ -27,7 +27,7 @@ class ConnectionStatus extends React.Component {
         return (
             <div className={`status 
                 ${this.state.connected === 'offline'
-                    ? "status_offline" : this.state.connected === 'online' ? "online" 
+                    ? "status_offline" : this.state.connected === 'online' ? "" 
                     : ""
                 }`}>
                 {this.state.connected}
