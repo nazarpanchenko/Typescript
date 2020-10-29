@@ -1,7 +1,5 @@
 import React from 'react';
 
-let user;
-
 class UserForm extends React.Component {
    state = {
         name : '',
