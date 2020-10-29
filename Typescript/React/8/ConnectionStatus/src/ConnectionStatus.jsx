@@ -3,7 +3,7 @@ import React from 'react';
 class ConnectionStatus extends React.Component {
     state = {
         connected : 'online'
-    }
+    };
 
     componentDidMount() {
         window.addEventListener('online', this.showConnectionStatus);
@@ -19,16 +19,14 @@ class ConnectionStatus extends React.Component {
         this.setState({
             connected : navigator.onLine ? 'online' : 'offline'
         });
-
         return this.state.connected;
     }
 
     render() {
         return (
-            <div className={`status 
-                ${this.state.connected === 'offline'
-                    ? "status_offline" : this.state.connected === 'online' ? "" 
-                    : ""
+            <div className={`status${this.state.connected === 'online'
+                    ? '' : this.state.connected === 'offline' ? ' status_offline' 
+                    : ''
                 }`}>
                 {this.state.connected}
             </div>
