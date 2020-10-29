@@ -19,7 +19,7 @@ class UserForm extends React.Component {
 
     render() {
         return (
-            <form className="login-form" onSubmit={e => this.props.createUser({ ...this.state })}>
+            <form className="login-form" onSubmit={() => this.props.createUser({ ...this.state })}>
                 <h1 className="form-title">Profile</h1>
                 <div className="form-control">
                     <label 
