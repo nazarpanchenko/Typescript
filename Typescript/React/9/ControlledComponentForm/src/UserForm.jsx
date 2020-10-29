@@ -2,25 +2,28 @@ import React from 'react';
 
 class UserForm extends React.Component {
    state = {
-       name : '',
-       occupation : '',
-       student : '',
-       about : ''
+       user : {
+           name : '',
+           occupation : '',
+           student : '',
+           about : ''
+       }
    };
 
    handleChange = event => {
+       const { user } = { ...this.state };
+       const currentState = user;
        const { name, value, checked, type } = event.target;
+       const val = (type === 'checkbox') ? checked : value;
 
-       const val = type === 'checkbox' ? checked : value;
+       currentState[name] = val;
 
-       this.setState({
-          [name] : val
-       });
+       this.setState({ user : currentState });
    }
 
     render() {
         return (
-            <form className="login-form" onSubmit={this.props.createUser}>
+            <form className="login-form" onSubmit={() => this.props.createUser(this.state.user)}>
                 <h1 className="form-title">Profile</h1>
                 <div className="form-control">
                     <label 
@@ -30,7 +33,7 @@ class UserForm extends React.Component {
                     </label>
                     <input 
                         className="form-input"
-                        value={this.state.name}
+                        value={this.state.user.name}
                         type="text" 
                         id="name" 
                         name="name" 
@@ -45,7 +48,7 @@ class UserForm extends React.Component {
                     </label>
                     <input 
                         className="form-input" 
-                        value={this.state.student} 
+                        value={this.state.user.student} 
                         type="checkbox" 
                         id="student" 
                         name="student" 
@@ -60,7 +63,7 @@ class UserForm extends React.Component {
                         Occupation
                     </label>
                     <select 
-                        value={this.state.occupation} 
+                        value={this.state.user.occupation} 
                         name="occupation" 
                         className="form-input"
                         onChange={this.handleChange}
@@ -80,7 +83,7 @@ class UserForm extends React.Component {
                     </label>
                     <textarea 
                         name="about" 
-                        value={this.state.about} 
+                        value={this.state.user.about} 
                         className="form-input"
                         onChange={this.handleChange}
                     />
