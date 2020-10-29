@@ -17,14 +17,14 @@ class UserForm extends React.Component {
        this.setState({ [name] : val });
    }
 
-   onSubmit = e => {
+   handleSubmit = e => {
        e.preventDefault();
        this.props.createUser({ ...this.state });
    }
 
     render() {
         return (
-            <form className="login-form" onSubmit={this.onSubmit}>
+            <form className="login-form" onSubmit={this.handleSubmit}>
                 <h1 className="form-title">Profile</h1>
                 <div className="form-control">
                     <label 
