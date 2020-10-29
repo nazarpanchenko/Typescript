@@ -5,7 +5,7 @@ import UserForm from './UserForm';
 
 class App extends React.Component {
     createUser = user => {
-       alert(user);
+       console.log(user);
     }
 
     render() {
