@@ -9,17 +9,14 @@ class UsersList extends React.Component {
     };
 
     handleFilterChange = e => {
-        // const matchFound = 
-        //     (e.target.value.toLowerCase().includes(this.state.foundUsersCount.toLowerCase()))
-        //         ? Number(this.state.foundUsersCount) + 1
-        //         : null;
-
         this.setState({
             filterText : e.target.value
         });
-
         console.log(this.state.filterText);
     }
+
+    findMatch = userName => 
+        (userName.toLowerCase().includes(this.state.filterText.toLowerCase()));
 
     render() {
         return (
@@ -32,7 +29,16 @@ class UsersList extends React.Component {
                     />
                 </div>
                 <ul className="users">
-                    {this.props.users.map(user => <User key={user.id} {...user} />)}
+                    {
+                        !this.state.filterText
+                            ? (
+                                this.props.users.map(user => <User key={user.id} {...user} />)
+                            )
+                            : (
+                                this.props.users.filter(user => this.findMatch(user.name))
+                                    .map(user => <User key={user.id} {...user} />)
+                            )
+                    }
                 </ul>
             </div>
         );
