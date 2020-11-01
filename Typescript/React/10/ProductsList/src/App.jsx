@@ -29,7 +29,7 @@ class App extends React.Component {
                     {`Hello, ${userData.firstName} ${userData.lastName}`}
                 </h1>
                 <main className="content">
-                    <ShoppingCart userData={userData}  />
+                    <ShoppingCart userData={userData} />
                     <Profile 
                         userData={userData} 
                         handleChange={this.handleChange}
@@ -38,6 +38,6 @@ class App extends React.Component {
             </div>
         );
     }
-} 
+}
 
 export default App;
