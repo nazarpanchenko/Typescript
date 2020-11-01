@@ -29,7 +29,9 @@ class App extends React.Component {
                     {`Hello, ${userData.firstName} ${userData.lastName}`}
                 </h1>
                 <main className="content">
-                    <ShoppingCart userData={userData} />
+                    <div className="column">
+                        <ShoppingCart userData={userData} />
+                    </div>
                     <Profile 
                         userData={userData} 
                         handleChange={this.handleChange}
