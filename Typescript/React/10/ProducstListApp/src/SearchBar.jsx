@@ -1,19 +1,21 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-    constructor({ filterText, inStockOnly, onFilterTextChange, onInStockChange }) {
+    constructor(props) {
       super(props);
     }
     
     handleFilterTextChange = (e) => {
-      onFilterTextChange(e.target.value);
+      this.props.onFilterTextChange(e.target.value);
     }
     
     handleInStockChange = (e) => {
-      onInStockChange(e.target.checked);
+      this.props.onInStockChange(e.target.checked);
     }
     
     render() {
+      const { filterText, inStockOnly, onFilterTextChange, onInStockChange } = this.props;
+
       return (
         <form>
           <input
