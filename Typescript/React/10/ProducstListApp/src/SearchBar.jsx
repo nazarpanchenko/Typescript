@@ -6,11 +6,11 @@ class SearchBar extends React.Component {
     }
     
     handleFilterTextChange = (e) => {
-      this.props.onFilterTextChange(e.target.value);
+      onFilterTextChange(e.target.value);
     }
     
     handleInStockChange = (e) => {
-      this.props.onInStockChange(e.target.checked);
+      onInStockChange(e.target.checked);
     }
     
     render() {
