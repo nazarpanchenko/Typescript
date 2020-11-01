@@ -29,13 +29,11 @@ class App extends React.Component {
                     {`Hello, ${userData.firstName} ${userData.lastName}`}
                 </h1>
                 <main className="content">
-                    <div className="column">
-                        <Profile 
-                            userData={userData} 
-                            handleChange={this.handleChange}
-                        />
-                        <ShoppingCart userData={userData} />
-                    </div>
+                    <Profile 
+                        userData={userData} 
+                        handleChange={this.handleChange}
+                    />
+                    <ShoppingCart userData={userData} />
                 </main>
             </div>
         );
