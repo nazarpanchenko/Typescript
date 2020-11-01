@@ -6,7 +6,7 @@ class ShoppingCart extends React.Component {
     state = {
         cartItems : [
             { 
-                id: '1', name: 'Samsung Galaxy', price: 865 
+                id: '1', name: 'IPhone 11', price: 999 
             },
             { 
                 id: '2', name: 'iPad Pro', price: 799 
