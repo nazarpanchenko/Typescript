@@ -14,10 +14,10 @@ class App extends React.Component {
 
    
    showDialog = () => {
-    this.setState({
-         isOpen : true
-    });
-}
+        this.setState({
+            isOpen : true
+        });
+    }
 
     render() {
         return (
@@ -25,8 +25,8 @@ class App extends React.Component {
                 <button class="btn" onClick={this.showDialog}>Show dialog</button>
                 <Dialog 
                     isOpen={this.state.isOpen} 
-                    title="Recommendation"
-                    onClose={this.hideDialog}>
+                    onClose={this.hideDialog}
+                    title="Recommendation">
                         <p>Use immutable array methods to work with data. It will help to avoid bugs</p>
                 </Dialog>
             </div>
