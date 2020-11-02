@@ -9,7 +9,7 @@ const Expand = ({ isShown, title, children, handleDisplay }) => {
             <div className="expand__header">
                 <span className="expand__title">{title}</span>
                 <button className="expand__toggle-btn" onClick={handleDisplay}>
-                   <i className={toggleArrow} />
+                   +
                 </button>
             </div>
             <div className="expand__content">{ !isShown ? null : children }</div>
