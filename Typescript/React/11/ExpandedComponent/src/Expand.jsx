@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Expand = ({ isHidden, title, children, handleDisplay }) => {
-    const toggleArrow = isHidden ? 'fas fa-chevron-down' : 'fas fa-chevron-up',
+    const toggleArrow = !isHidden ? 'fas fa-chevron-down' : 'fas fa-chevron-up',
         showContent = !isHidden ? null : children;
 
     return (
