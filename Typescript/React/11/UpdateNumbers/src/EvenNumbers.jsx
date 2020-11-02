@@ -19,4 +19,4 @@ class EvenNumbers extends Component {
     }
 }
 
-export default Numbers;
+export default EvenNumbers;

@@ -19,8 +19,8 @@ class Numbers extends PureComponent {
 }
 
 Numbers.propTypes = {
-    title: propTypes.string,
-    number: propTypes.number.isRequired
+    title: PropTypes.string,
+    number: PropTypes.number.isRequired
 };
 
 Numbers.defaultProps = {

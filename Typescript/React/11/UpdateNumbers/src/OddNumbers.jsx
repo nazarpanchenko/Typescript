@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Oddumbers extends Component {
+class OddNumbers extends Component {
     shouldComponentUpdate(nextProps) {
         return nextProps.number % 2 === 1;
     }
