@@ -24,7 +24,7 @@ Numbers.propTypes = {
 };
 
 Numbers.defaultProps = {
-    title: 'Some number'
+    title: 'Just 17'
 };
 
 export default Numbers;
