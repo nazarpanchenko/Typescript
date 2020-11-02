@@ -15,16 +15,4 @@ const Expand = ({ isShown, title, children, handleDisplay }) => {
     );
 }
 
-Expand.propTypes = {
-    isHidden: PropTypes.bool,
-    title: PropTypes.string,
-    children: PropTypes.element.isRequired,
-    handleDisplay: PropTypes.func.isRequired
-};
-
-Expand.defaultProps = {
-    title: '',
-    isShown: false
-};
-
 export default Expand;
