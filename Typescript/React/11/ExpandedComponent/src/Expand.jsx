@@ -7,7 +7,7 @@ const Expand = ({ isHidden, title, children, handleToggle }) => {
             <div className="expand__header">
                 <span className="expand__title">{title}</span>
                 <button className="expand__toggle-btn" onClick={handleToggle}>
-                    <i class="fas fa-chevron-up"></i>
+                    <i className="fas fa-chevron-up"></i>
                 </button>
             </div>
             <div className="expand__content"> { !isHidden ? null : children }</div>
