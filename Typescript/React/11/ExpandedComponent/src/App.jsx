@@ -6,7 +6,7 @@ class App extends React.Component {
         display : false
     };
 
-    toggleDisplay = () => {
+    handleDisplay = () => {
         this.setState({
             display : !this.state.display
         });
@@ -18,7 +18,7 @@ class App extends React.Component {
                 <Expand 
                     isHidden={this.state.display}
                     title='Some title' 
-                    handleToggle={this.toggleDisplay}>
+                    handleDisplay={this.handleDisplay}>
                         <p>Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.</p>
                 </Expand>
             </div>
