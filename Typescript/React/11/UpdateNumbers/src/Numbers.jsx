@@ -10,7 +10,7 @@ class Numbers extends PureComponent {
                 <span className="number__title">
                     {this.props.title}
                 </span>
-                <span className="number__number">
+                <span className="number__value">
                     {this.props.number}
                 </span>
             </div>
