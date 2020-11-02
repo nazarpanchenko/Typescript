@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Expand = ({ isHidden, title, children, handleDisplay }) => {
-    const toggleArrow = !isHidden ? 'fas fa-chevron-down' : 'fas fa-chevron-up',
-        showContent = !isHidden ? null : children;
+const Expand = ({ isShown, title, children, handleDisplay }) => {
+    const toggleArrow = !isShown ? 'fas fa-chevron-down' : 'fas fa-chevron-up',
+        showContent = !isShown ? null : children;
 
     return (
         <div className="expand border">
@@ -16,5 +17,17 @@ const Expand = ({ isHidden, title, children, handleDisplay }) => {
         </div>
     );
 }
+
+Expand.propTypes = {
+    isHidden: PropTypes.bool,
+    title: PropTypes.string,
+    children: PropTypes.element.isRequired,
+    handleDisplay: PropTypes.func.isRequired
+};
+
+Expand.defaultProps = {
+    title: '',
+    isShown: false
+};
 
 export default Expand;
