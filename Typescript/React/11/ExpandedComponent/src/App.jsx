@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Expand from './Expand';
 
-class App extends React.Component {
+class App extends Component {
     state = {
         display : false
     };
