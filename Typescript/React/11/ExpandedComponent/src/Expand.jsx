@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Expand = ({ isShown, title, children, handleDisplay }) => {
-    const toggleArrow = !isShown ? 'fas fa-chevron-down' : 'fas fa-chevron-up',
+    let toggleArrow = !isShown ? 'fas fa-chevron-down' : 'fas fa-chevron-up',
         showContent = !isShown ? null : children;
 
     return (
@@ -10,10 +10,10 @@ const Expand = ({ isShown, title, children, handleDisplay }) => {
             <div className="expand__header">
                 <span className="expand__title">{title}</span>
                 <button className="expand__toggle-btn" onClick={handleDisplay}>
-                   <i className={toggleArrow}></i>
+                   <i className={toggleArrow} />
                 </button>
             </div>
-            <div className="expand__content">{showContent}</div>
+            { !isShown? null : <div className="expand__content">{showContent}</div> }
         </div>
     );
 }
