@@ -1,19 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Expand = ({ isShown, title, children, handleDisplay }) => {
-    // const ARROW = !isShown ? "fas fa-chevron-down" : "fas fa-chevron-up";
-
+const Expand = ({ isShown, title, children }) => {
     return (
         <div className="expand border">
             <div className="expand__header">
                 <span className="expand__title">{title}</span>
-                <button className="expand__toggle-btn" onClick={handleDisplay}>
-                    { 
-                        !isShown 
-                            ? <i className="fas fa-chevron-down"></i> 
-                            : <i className="fas fa-chevron-up"></i> 
-                    }
+                <button className="expand__toggle-btn">
+                   <i className="fas fa-chevron-up" />
                 </button>
             </div>
             <div className="expand__content">{ !isShown ? null : children }</div>
@@ -22,14 +16,13 @@ const Expand = ({ isShown, title, children, handleDisplay }) => {
 }
 
 Expand.propTypes = {
-    isHidden: PropTypes.bool,
+    isShown: PropTypes.bool,
     title: PropTypes.string,
-    children: PropTypes.element.isRequired,
-    handleDisplay: PropTypes.func.isRequired
+    children: PropTypes.element.isRequired
 };
 
 Expand.defaultProps = {
-    title: '',
+    title: 'Some title',
     isShown: false
 };
 
