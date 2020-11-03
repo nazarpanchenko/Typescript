@@ -11,18 +11,19 @@ const Expand = ({ isShown, title, children, handleDisplay }) => {
                    <i className={ARROW_ICON} />
                 </button>
             </div>
-            <div className="expand__content">{ !isShown ? null : children }</div>
+            { !isShown ? null : children }
         </div>
     );
 }
 
 Expand.propTypes = {
     isShown: PropTypes.bool,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     children: PropTypes.element.isRequired,
     handleDisplay: PropTypes.func.isRequired
 };
 Expand.defaultProps = {
+    title: '',
     isShown: false
 };
 
