@@ -6,9 +6,9 @@ class App extends Component {
         display : false
     };
 
-    handleDisplay = () => {
+    showDisplay = () => {
         this.setState({
-            display : !this.state.display
+            display : true
         });
     }
 
@@ -18,8 +18,10 @@ class App extends Component {
                 <Expand 
                     isShown={this.state.display}
                     title='Some title' 
-                    handleDisplay={this.handleDisplay}>
-                        <p>Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.</p>
+                    showDisplay={this.showDisplay}>
+                        <div className="expand__content">
+                            <p>Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.</p>
+                        </div>
                 </Expand>
             </div>
         );
