@@ -11,7 +11,7 @@ const Expand = ({ isShown, title, children, handleDisplay }) => {
                    <i className={ARROW_ICON} />
                 </button>
             </div>
-            { !isShown ? null : children }
+            {!isShown ? null : children}
         </div>
     );
 }
