@@ -1,30 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const Expand = ({ isShown, title, children, handleDisplay }) => {
-    const ARROW_ICON = !isShown ? "fas fa-chevron-down" : "fas fa-chevron-up";
-    return (
-        <div className="expand border">
-            <div className="expand__header">
-                <span className="expand__title">{title}</span>
-                <button className="expand__toggle-btn" onClick={handleDisplay}>
-                   <i className={ARROW_ICON} />
-                </button>
+class Expand extends Component {
+    state = {
+        isShown : false
+    };
+
+    handleDisplay = () => {
+        this.setState({
+            isShown : !this.state.isShown
+        });
+    }
+
+    render() {
+        const ARROW_ICON = !this.state.isShown ? "fas fa-chevron-down" : "fas fa-chevron-up";
+
+        return (
+            <div className="expand border">
+                <div className="expand__header">
+                    <span className="expand__title">{this.props.title}</span>
+                    <button className="expand__toggle-btn" onClick={this.handleDisplay}>
+                       <i className={ARROW_ICON} />
+                    </button>
+                </div>
+                {!this.state.isShown ? null : this.props.children}
             </div>
-            <div className="expand__content">{!isShown ? null : children}</div>
-        </div>
-    );
+        );
+    }
 }
 
 Expand.propTypes = {
-    isShown: PropTypes.bool,
     title: PropTypes.string,
-    children: PropTypes.element.isRequired,
-    handleDisplay: PropTypes.func.isRequired
+    children: PropTypes.element.isRequired
 };
 Expand.defaultProps = {
-    title: '',
-    isShown: false
+    title: ''
 };
 
 export default Expand;
