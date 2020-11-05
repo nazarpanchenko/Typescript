@@ -25,7 +25,7 @@ class TasksList extends Component {
             text,
             done : false
         };
-
+        
         createTask(newTask).then(() => this.fetchTasks());
     }
 
@@ -35,7 +35,7 @@ class TasksList extends Component {
             text,
             done: !done
         };
-        
+
         updateTask(id, updatedTask).then(() => this.fetchTasks());
     }
 
