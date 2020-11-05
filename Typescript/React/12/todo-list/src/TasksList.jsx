@@ -25,7 +25,7 @@ class TasksList extends Component {
             text,
             done : false
         };
-        
+
         createTask(newTask).then(() => this.fetchTasks());
     }
 
@@ -40,7 +40,7 @@ class TasksList extends Component {
     }
 
     handleTaskDelete = id => {
-        updateTask(id).then(() => this.fetchTasks());
+        deleteTask(id).then(() => this.fetchTasks());
     }
 
     render() {
