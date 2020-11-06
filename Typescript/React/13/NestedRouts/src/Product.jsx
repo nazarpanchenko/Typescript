@@ -2,7 +2,7 @@ import React from 'react';
 
 function Product({ match }) {
     return (
-        <div class="product">
+        <div className="product">
             {match.params.productId}
         </div>  
     );

@@ -19,7 +19,7 @@ function Products({ match }) {
                     <span>Select a product please</span>
                 </Route>
                 <Route 
-                    path={`${match.url}/products/:productId`} 
+                    path={`${match.url}/:productId`} 
                     component={Product} 
                 />
             </Switch>
