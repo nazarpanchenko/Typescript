@@ -7,13 +7,13 @@ class ConnectionStatus extends Component {
     };
 
     componentDidMount() {
-        window.addEventListener('online', this.handleOnineStatus);
-        window.addEventListener('offline', this.handleOffineStatus);
+        window.addEventListener('online', this.handleOnlineStatus);
+        window.addEventListener('offline', this.handleOfflineStatus);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('online', this.handleOnineStatus);
-        window.removeEventListener('offline', this.handleOffineStatus);
+        window.removeEventListener('online', this.handleOnlineStatus);
+        window.removeEventListener('offline', this.handleOfflineStatus);
     }
 
     handleOnlineStatus = () => {
@@ -25,13 +25,13 @@ class ConnectionStatus extends Component {
     }
 
     render() {
-        const statusText = (this.state.isOnline === 'online') ? 'Online' 
-            : (this.state.isOnline === 'offline') ? 'Offline'
-            : 'Online';
-
         return (
-            <div className={classNames('status', { 'status_offline' : !this.state.isOnline })}>
-                {statusText}
+            <div className={classNames('status', {'status_offline' : (this.state.isOnline === 'offline')})}>
+                {
+                    (this.state.isOnline === 'online') ? 'online' 
+                        : (this.state.isOnline === 'offline') ? 'offline'
+                        : 'online'
+                }
             </div>
         );
     }
