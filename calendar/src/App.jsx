@@ -48,25 +48,23 @@ class App extends Component {
     }
 
     render() {
-        const { weekStartDate } = this.state;
+        const { weekStartDate, isModalOpen } = this.state;
         const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
         return (<>
             <Header 
                 openEventWindow={this.openEventWindow}
                 setCurrentWeek={this.setCurrentWeek}
-                setNextWeek={this.setNextWeek}
                 setPreviousWeek={this.setPreviousWeek} 
+                setNextWeek={this.setNextWeek}
+                weekStartDate={weekStartDate}
             />
-            {
-                this.state.isModalOpen 
-                    ? <Modal 
-                        closeEventWindow={this.closeEventWindow}
-                        renderEventsList={this.renderEventsList}
-                    /> 
-                    : null
-            }
-            <Calendar weekDates={weekDates} />
+            <Calendar 
+                weekDates={weekDates}
+                isModalOpen={isModalOpen}
+                closeEventWindow={this.closeEventWindow}
+                weekStartDate={weekStartDate}
+            />
         </>)
     }
 };

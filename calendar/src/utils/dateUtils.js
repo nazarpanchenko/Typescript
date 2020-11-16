@@ -32,18 +32,23 @@ export const formatMins = (mins) => {
     return mins < 10 ? `0${mins}` : mins;
 }
 
-export const showCurrentMonth = months => {
-    const currentMonthIndex = new Date().getMonth();
+export const showCurrentMonth = (weekStartDate, months, days) => {
+   const monday = weekStartDate.getDate();
+   let month = months[weekStartDate.getMonth()].substring(0, 3);
 
-    let currentMonth;
+   if (months[weekStartDate.getMonth() + 1] === undefined) {
+       months[weekStartDate.getMonth() + 1] = months[0];
+   }
 
-    for (let i = 0; i < months.length; i++) {
-        if (currentMonthIndex === i) {
-            currentMonth = months[i].substring(0, 3);
-        }
-    }
+   for (let i = 0; i < days.length; i++) {
+       const nextDate = new Date(new Date().setDate(monday + i)).getDate();
 
-    return currentMonth;
+       if (nextDate === 1) {
+           month = month + ' - ' + months[weekStartDate.getMonth() + 1].substring(0, 3);
+       }
+   }
+
+    return month;
 };
 
 export const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];

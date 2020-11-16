@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './event.scss';
+import EventDeletePopup from '../eventDeletePopup/EventDeletePopup';
 import PropTypes from 'prop-types';
 
-const Event = ({ height, marginTop, title, time }) => {
+const Event = ({ 
+    eventId, 
+    height, 
+    marginTop, 
+    title, 
+    time, 
+    description, 
+    fetchEvents 
+}) => {
+
+    const [isPopupOpen, togglePopup] = useState(false);
 
     const eventStyle = {
         height,
@@ -11,26 +22,25 @@ const Event = ({ height, marginTop, title, time }) => {
     };
 
     return (
-        <div style={eventStyle} className="event">
+        <div style={eventStyle}
+            className="event"
+            onMouseEnter={() => togglePopup(true)}
+            onMouseLeave={() => togglePopup(false)}>
             <div className="event__title">{title}</div>
             <div className="event__time">{time}</div>
+
+            {description 
+                ? <div className="event__description">{description}</div> 
+                : null}
+            {isPopupOpen 
+                ? <EventDeletePopup eventId={eventId} fetchEvents={fetchEvents} /> 
+                : null}
         </div>
     )
 }
 
-
 export default Event;
 
 Event.propTypes = {
-    height: PropTypes.string,
-    marginTop: PropTypes.string,
-    title: PropTypes.string,
-    time: PropTypes.date
-};
-
-Event.defaultProps = {
-    height: '',
-    marginTop: '',
-    title: '',
-    time: new Date()
+    eventId: PropTypes.string
 };

@@ -1,16 +1,23 @@
 import React from 'react';
 
-import { months, showCurrentMonth } from '../../utils/dateUtils.js';
+import { months, days, showCurrentMonth, getWeekStartDate } from '../../utils/dateUtils.js';
 
 import './header.scss';
 import PropTypes from 'prop-types';
 
-const Header = ({ openEventWindow, setCurrentWeek, setPreviousWeek, setNextWeek }) => {
-    const currentMonth = showCurrentMonth(months);
+const Header = ({
+    openEventWindow, 
+    setCurrentWeek, 
+    setPreviousWeek, 
+    setNextWeek, 
+    weekStartDate 
+}) => {
+
+    const currentMonth = showCurrentMonth(getWeekStartDate(weekStartDate), months, days);
 
     return (
-        <header className="header">
-            <button 
+        <header className='header'>
+            <button
                 className="button create-event-btn" 
                 onClick={() => openEventWindow()}>
                     <i className="fas fa-plus create-event-btn__icon"></i>Create
@@ -34,7 +41,7 @@ const Header = ({ openEventWindow, setCurrentWeek, setPreviousWeek, setNextWeek 
                 <span className="navigation__displayed-month">{currentMonth}</span>
             </div>
         </header>
-    )
+    );
 }
 
 export default Header;
