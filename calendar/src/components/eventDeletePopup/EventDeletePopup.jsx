@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './eventDeletePopup.scss';
 import PropTypes from 'prop-types';
 import { getEventsList, deleteEvent } from '../../gateway/events.js';
+import { canDeleteEvent } from '../../utils/validators';
+import EventContext from '../../EventContext.js';
 
-const EventDeletePopup = ({ eventId, fetchEvents }) => {
-    const [id, setId] = useState(null);
+const EventDeletePopup = ({ eventId }) => {
+    const [id, setId] = useState(eventId);
+    const events = useContext(EventContext);
+
+    const { eventsList, fetchEvents } = events;
+    const updatedID = eventsList.filter(event => event.id === eventId)[0].id;
 
     const onDelete = () => {
-        deleteEvent(eventId).then(() => getEventsList())
-            .then(eventsList => fetchEvents());
+        setId(updatedID);
+
+        if (canDeleteEvent(eventsList[id])) {
+            deleteEvent(id).then(() => getEventsList())
+                .then(eventsList => fetchEvents());
+        } else {
+            alert('Sorry, cannot cancel this event. It will start in 15 minutes');
+        }
     };
 
     return (
         <div className="popup">
             <button type="button"
                 className="popup__delete-btn"
-                onClick={() => {
-                    setId(eventId);
-                    onDelete();
-                }}>
+                onClick={() => onDelete()}>
 
                 <i className="fa fa-trash" aria-hidden="true"></i>
                 Delete

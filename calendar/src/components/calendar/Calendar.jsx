@@ -9,6 +9,7 @@ import events, { getEventsList, createEvent } from '../../gateway/events.js';
 import { getDateTime } from '../../utils/dateUtils.js';
 import './calendar.scss';
 import PropTypes from 'prop-types';
+import EventContext from '../../EventContext';
 
 class Calendar extends Component {
 
@@ -54,6 +55,11 @@ class Calendar extends Component {
     render() {
         const { weekDates, closeEventWindow, isModalOpen, weekStartDate } = this.props;
 
+        const events = {
+            eventsList: this.state.events,
+            fetchEvents: this.fetchEvents
+        };
+
         return (
             <section className="calendar">
                 {isModalOpen 
@@ -67,11 +73,12 @@ class Calendar extends Component {
                 <div className="calendar__body">
                     <div className="calendar__week-container">
                         <Sidebar />
-                        <Week
-                            weekDates={weekDates}
-                            events={this.state.events}
-                            fetchEvents={this.fetchEvents}
-                        />
+                        <EventContext.Provider value={events}>
+                            <Week
+                                weekDates={weekDates}
+                                events={this.state.events}
+                            />
+                        </EventContext.Provider>
                     </div>
                 </div>
             </section>

@@ -3,7 +3,7 @@ import Hour from '../hour/Hour';
 
 import PropTypes from 'prop-types';
 
-const Day = ({ dataDay, dayEvents, fetchEvents }) => {
+const Day = ({ dataDay, dayEvents }) => {
     const hours = Array(24).fill().map((val, index) => index);
 
     return (
@@ -23,7 +23,6 @@ const Day = ({ dataDay, dayEvents, fetchEvents }) => {
                         key={dataDay + hour}
                         dataHour={hour}
                         hourEvents={hourEvents}
-                        fetchEvents={fetchEvents}
                     />
                 )
             })}

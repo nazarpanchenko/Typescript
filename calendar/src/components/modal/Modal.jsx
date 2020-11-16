@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
 import './modal.scss';
-import validator, { date, isEventValid, isTitleValid, isDateValid } from '../../utils/validators.js';
 import PropTypes from 'prop-types';
+
+import validator, { date, allInputsValid, isTitleValid, isDateValid, isEventExists } 
+    from '../../utils/validators.js';
 
 class Modal extends Component {
     state = {
@@ -76,18 +78,14 @@ class Modal extends Component {
                 event: newEvent,
                 validator: {
                     ...this.state.validator,
-                    date: true,
-                    startTime: true,
-                    endTime: true
+                    [name] : true
                 }
             });
         } else {
             this.setState({
                 validator: {
                     ...this.state.validator,
-                    date: false,
-                    startTime: false,
-                    endTime: false
+                    [name]: false
                 }
             });
         }
@@ -108,11 +106,9 @@ class Modal extends Component {
 
     handleEventCreate = event => {
         event.preventDefault();
-        this.props.onEventCreate(this.state.event);
-        this.clearForm();
 
         try {
-            if (isEventValid(event)) {
+            if (allInputsValid(event)) {
                 this.props.onEventCreate(this.state.event);
                 this.clearForm();
             }

@@ -4,7 +4,7 @@ import Day from '../day/Day';
 import './week.scss';
 import PropTypes from 'prop-types';
 
-const Week = ({ weekDates, events, fetchEvents }) => {
+const Week = ({ weekDates, events }) => {
 
     return (
         <div className="calendar__week">
@@ -25,7 +25,6 @@ const Week = ({ weekDates, events, fetchEvents }) => {
                         key={dayStart.getDate()} 
                         dataDay={dayStart.getDate()} 
                         dayEvents={dayEvents}
-                        fetchEvents={fetchEvents}
                     />
                 )
             })}

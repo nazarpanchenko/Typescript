@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import './event.scss';
 import EventDeletePopup from '../eventDeletePopup/EventDeletePopup';
@@ -10,8 +10,7 @@ const Event = ({
     marginTop, 
     title, 
     time, 
-    description, 
-    fetchEvents 
+    description
 }) => {
 
     const [isPopupOpen, togglePopup] = useState(false);
@@ -33,7 +32,7 @@ const Event = ({
                 ? <div className="event__description">{description}</div> 
                 : null}
             {isPopupOpen 
-                ? <EventDeletePopup eventId={eventId} fetchEvents={fetchEvents} /> 
+                ? <EventDeletePopup eventId={eventId} /> 
                 : null}
         </div>
     )

@@ -5,7 +5,7 @@ import { formatMins } from '../../../src/utils/dateUtils.js';
 import PropTypes from 'prop-types';
 import './hour.scss';
 
-const Hour = ({ dataHour, hourEvents, fetchEvents }) => {
+const Hour = ({ dataHour, hourEvents }) => {
 
     return (
         <div className="calendar__time-slot" data-time={dataHour + 1}>
@@ -24,7 +24,6 @@ const Hour = ({ dataHour, hourEvents, fetchEvents }) => {
                         time={`${eventStart} - ${eventEnd}`}
                         title={title}
                         description={description}
-                        fetchEvents={fetchEvents}
                     />
                 )
             })}
